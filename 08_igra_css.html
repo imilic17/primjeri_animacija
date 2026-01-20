@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Mini Igra - Uhvati Metu!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #0ff;
+        }
+
+        .instructions {
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .game-area {
+            width: 100%;
+            height: 400px;
+            background: rgba(0,0,0,0.3);
+            border: 3px solid #0ff;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* METE - Različite animacije */
+        .target {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.3s;
+        }
+
+        .target:hover {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        /* Meta 1 - Horizontalno kretanje */
+        .target-1 {
+            background: radial-gradient(circle, #ff416c, #ff4b2b);
+            top: 50px;
+            animation: moveHorizontal 3s ease-in-out infinite alternate;
+            box-shadow: 0 0 20px #ff416c;
+        }
+
+        @keyframes moveHorizontal {
+            from { left: 20px; }
+            to { left: calc(100% - 70px); }
+        }
+
+        /* Meta 2 - Vertikalno kretanje */
+        .target-2 {
+            background: radial-gradient(circle, #00d4ff, #0099ff);
+            left: 100px;
+            animation: moveVertical 2s ease-in-out infinite alternate;
+            box-shadow: 0 0 20px #00d4ff;
+        }
+
+        @keyframes moveVertical {
+            from { top: 20px; }
+            to { top: calc(100% - 70px); }
+        }
+
+        /* Meta 3 - Dijagonalno */
+        .target-3 {
+            background: radial-gradient(circle, #7a00ff, #ff00c8);
+            animation: moveDiagonal 4s ease-in-out infinite alternate;
+            box-shadow: 0 0 20px #7a00ff;
+        }
+
+        @keyframes moveDiagonal {
+            0% { top: 20px; left: 200px; }
+            50% { top: 150px; left: calc(100% - 70px); }
+            100% { top: calc(100% - 70px); left: 300px; }
+        }
+
+        /* Meta 4 - Bounce */
+        .target-4 {
+            background: radial-gradient(circle, #27ca40, #11998e);
+            left: 400px;
+            animation: bounce 1s ease-in-out infinite;
+            box-shadow: 0 0 20px #27ca40;
+        }
+
+        @keyframes bounce {
+            0%, 100% { top: calc(100% - 70px); }
+            50% { top: 50px; }
+        }
+
+        /* Meta 5 - Kružno kretanje */
+        .target-5 {
+            background: radial-gradient(circle, #feca57, #ff9f43);
+            animation: circular 5s linear infinite;
+            box-shadow: 0 0 20px #feca57;
+        }
+
+        @keyframes circular {
+            0% { top: 175px; left: 50%; transform: translateX(-50%) rotate(0deg) translateX(100px); }
+            100% { top: 175px; left: 50%; transform: translateX(-50%) rotate(360deg) translateX(100px); }
+        }
+
+        /* Meta 6 - Teleportacija (pojavi/nestani) */
+        .target-6 {
+            background: radial-gradient(circle, #ee5a24, #ea2027);
+            width: 40px;
+            height: 40px;
+            animation: teleport 2s steps(1) infinite;
+            box-shadow: 0 0 20px #ee5a24;
+        }
+
+        @keyframes teleport {
+            0% { top: 100px; left: 100px; opacity: 1; }
+            25% { top: 200px; left: 500px; opacity: 1; }
+            50% { top: 50px; left: 300px; opacity: 1; }
+            75% { top: 300px; left: 200px; opacity: 1; }
+            100% { top: 100px; left: 100px; opacity: 1; }
+        }
+
+        /* Score display */
+        .score {
+            color: #0ff;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        .score span {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Checkbox hack za score */
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked + .target {
+            display: none;
+        }
+
+        .tip {
+            color: #666;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .code-hint {
+            background: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+            color: #0f0;
+            font-family: monospace;
+        }
+
+        .code-hint h3 {
+            color: #0ff;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>&#127919; Uhvati Mete!</h1>
+        <p class="instructions">Klikni na mete da ih ukloniš! Svaka meta ima drugačiju animaciju.</p>
+
+        <div class="game-area">
+            <input type="checkbox" id="t1"><label for="t1" class="target target-1"></label>
+            <input type="checkbox" id="t2"><label for="t2" class="target target-2"></label>
+            <input type="checkbox" id="t3"><label for="t3" class="target target-3"></label>
+            <input type="checkbox" id="t4"><label for="t4" class="target target-4"></label>
+            <input type="checkbox" id="t5"><label for="t5" class="target target-5"></label>
+            <input type="checkbox" id="t6"><label for="t6" class="target target-6"></label>
+        </div>
+
+        <p class="tip">&#128161; Ova "igra" koristi samo CSS! Hover efekt smanjuje metu, checkbox hack ju skriva.</p>
+
+        <div class="code-hint">
+            <h3>Animacije korištene u igri:</h3>
+            <p>1. moveHorizontal - left: 20px do left: calc(100% - 70px)</p>
+            <p>2. moveVertical - top vrijednosti</p>
+            <p>3. moveDiagonal - kombinacija top i left</p>
+            <p>4. bounce - gravitacijski efekt</p>
+            <p>5. circular - rotate + translateX za kružno kretanje</p>
+            <p>6. teleport - steps(1) za instant promjene pozicije</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Ikone</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: -30px;
+        }
+
+        /* VERZIJA 1 - Fill efekt odozdo */
+        .social-icons-v1 {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons-v1 a {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+            background: #333;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            z-index: 1;
+        }
+
+        .social-icons-v1 a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            transition: height 0.3s ease;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .social-icons-v1 a:hover::before {
+            height: 100%;
+        }
+
+        .social-icons-v1 a.facebook::before { background: #1877f2; }
+        .social-icons-v1 a.instagram::before { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .social-icons-v1 a.twitter::before { background: #1da1f2; }
+        .social-icons-v1 a.youtube::before { background: #ff0000; }
+        .social-icons-v1 a.tiktok::before { background: #000; }
+
+        .social-icons-v1 a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* VERZIJA 2 - Rotate + Scale */
+        .social-icons-v2 {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons-v2 a {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .social-icons-v2 a.facebook { background: #1877f2; }
+        .social-icons-v2 a.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .social-icons-v2 a.twitter { background: #1da1f2; }
+        .social-icons-v2 a.youtube { background: #ff0000; }
+        .social-icons-v2 a.discord { background: #5865f2; }
+
+        .social-icons-v2 a:hover {
+            transform: rotate(360deg) scale(1.2);
+            border-radius: 50%;
+            box-shadow: 0 0 30px currentColor;
+        }
+
+        /* VERZIJA 3 - Tooltip */
+        .social-icons-v3 {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons-v3 a {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+            background: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons-v3 a::after {
+            content: attr(data-name);
+            position: absolute;
+            bottom: -40px;
+            background: #fff;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .social-icons-v3 a:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .social-icons-v3 a:hover {
+            transform: translateY(-10px);
+        }
+
+        .social-icons-v3 a.facebook:hover { background: #1877f2; box-shadow: 0 10px 30px #1877f2; }
+        .social-icons-v3 a.instagram:hover { background: linear-gradient(45deg, #f09433, #dc2743); box-shadow: 0 10px 30px #dc2743; }
+        .social-icons-v3 a.twitter:hover { background: #1da1f2; box-shadow: 0 10px 30px #1da1f2; }
+        .social-icons-v3 a.github:hover { background: #333; box-shadow: 0 10px 30px #666; }
+        .social-icons-v3 a.linkedin:hover { background: #0077b5; box-shadow: 0 10px 30px #0077b5; }
+
+        /* VERZIJA 4 - Bounce on hover */
+        .social-icons-v4 {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons-v4 a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .social-icons-v4 a.facebook { background: #1877f2; }
+        .social-icons-v4 a.instagram { background: linear-gradient(45deg, #f09433, #dc2743); }
+        .social-icons-v4 a.twitter { background: #1da1f2; }
+        .social-icons-v4 a.youtube { background: #ff0000; }
+        .social-icons-v4 a.twitch { background: #9146ff; }
+
+        .social-icons-v4 a:hover {
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            25% { transform: translateY(-15px); }
+            50% { transform: translateY(-5px); }
+            75% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <h2>Fill Effect</h2>
+    <div class="social-icons-v1">
+        <a href="#" class="facebook">f</a>
+        <a href="#" class="instagram">&#9737;</a>
+        <a href="#" class="twitter">&#120143;</a>
+        <a href="#" class="youtube">&#9658;</a>
+        <a href="#" class="tiktok">&#9835;</a>
+    </div>
+
+    <h2>Rotate + Scale</h2>
+    <div class="social-icons-v2">
+        <a href="#" class="facebook">f</a>
+        <a href="#" class="instagram">&#9737;</a>
+        <a href="#" class="twitter">&#120143;</a>
+        <a href="#" class="youtube">&#9658;</a>
+        <a href="#" class="discord">&#9786;</a>
+    </div>
+
+    <h2>Tooltip Effect</h2>
+    <div class="social-icons-v3">
+        <a href="#" class="facebook" data-name="Facebook">f</a>
+        <a href="#" class="instagram" data-name="Instagram">&#9737;</a>
+        <a href="#" class="twitter" data-name="Twitter/X">&#120143;</a>
+        <a href="#" class="github" data-name="GitHub">&#10070;</a>
+        <a href="#" class="linkedin" data-name="LinkedIn">in</a>
+    </div>
+
+    <h2>Bounce Effect</h2>
+    <div class="social-icons-v4">
+        <a href="#" class="facebook">f</a>
+        <a href="#" class="instagram">&#9737;</a>
+        <a href="#" class="twitter">&#120143;</a>
+        <a href="#" class="youtube">&#9658;</a>
+        <a href="#" class="twitch">&#9788;</a>
+    </div>
+</body>
+</html>

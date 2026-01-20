@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animirane Forme</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        .login-card {
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .login-card h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* INPUT GRUPE S FLOATING LABEL */
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 1rem;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            background: white;
+            padding: 0 5px;
+        }
+
+        /* Kada input ima fokus ili ima vrijednost */
+        .input-group input:focus,
+        .input-group input:valid {
+            border-color: #667eea;
+        }
+
+        .input-group input:focus + label,
+        .input-group input:valid + label {
+            top: 0;
+            font-size: 0.8rem;
+            color: #667eea;
+        }
+
+        /* ANIMIRANA LINIJA ISPOD INPUTA */
+        .input-group::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: all 0.3s ease;
+        }
+
+        .input-group:focus-within::after {
+            left: 0;
+            width: 100%;
+        }
+
+        /* ANIMIRANI SUBMIT BUTTON */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Ripple efekt */
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .submit-btn:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* CHECKBOX CUSTOM */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-group .checkmark {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-group input:checked + .checkmark {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-color: #667eea;
+            animation: checkPop 0.3s ease;
+        }
+
+        @keyframes checkPop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .checkbox-group .checkmark::after {
+            content: '✓';
+            color: white;
+            font-size: 14px;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-group input:checked + .checkmark::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .checkbox-group label {
+            color: #666;
+            cursor: pointer;
+        }
+
+        /* ERROR STATE - Shake animacija */
+        .input-group.error input {
+            border-color: #ff416c;
+            animation: shake 0.5s ease;
+        }
+
+        .input-group.error label {
+            color: #ff416c;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* SUCCESS IKONA */
+        .input-group.success::before {
+            content: '✓';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #27ca40;
+            font-size: 1.2rem;
+            animation: popIn 0.3s ease;
+        }
+
+        @keyframes popIn {
+            0% { transform: translateY(-50%) scale(0); }
+            50% { transform: translateY(-50%) scale(1.3); }
+            100% { transform: translateY(-50%) scale(1); }
+        }
+
+        /* LINK */
+        .forgot-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #667eea;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .forgot-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .forgot-link:hover::after {
+            left: 0;
+            width: 100%;
+        }
+
+        .demo-note {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2>&#128274; Prijava</h2>
+
+        <form>
+            <div class="input-group success">
+                <input type="email" id="email" required value="ucenik@skola.hr">
+                <label for="email">Email adresa</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" required>
+                <label for="password">Lozinka</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="remember">
+                <span class="checkmark"></span>
+                <label for="remember">Zapamti me</label>
+            </div>
+
+            <button type="button" class="submit-btn">Prijavi se</button>
+
+            <a href="#" class="forgot-link">Zaboravili ste lozinku?</a>
+        </form>
+
+        <div class="demo-note">
+            <strong>Isprobaj:</strong> Klikni na input polja, checkbox, gumb. Dodaj klasu "error" na input-group za shake efekt!
+        </div>
+    </div>
+</body>
+</html>

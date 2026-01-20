@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Efekt</title>
+    <style>
+        body {
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* TYPING EFEKT - Kao terminal */
+        .typing {
+            font-size: 2.5rem;
+            color: #0f0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid #0f0;
+            width: 0;
+            animation:
+                typing 3.5s steps(25, end) forwards,
+                blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: #0f0; }
+        }
+
+        .typing-container {
+            display: flex;
+            width: fit-content;
+        }
+
+        /* HACKER STYLE */
+        .hacker-terminal {
+            background: #111;
+            border: 2px solid #0f0;
+            border-radius: 10px;
+            padding: 30px;
+            width: 600px;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot:nth-child(1) { background: #ff5f56; }
+        .terminal-dot:nth-child(2) { background: #ffbd2e; }
+        .terminal-dot:nth-child(3) { background: #27ca40; }
+
+        .terminal-content {
+            color: #0f0;
+            font-size: 1rem;
+        }
+
+        .terminal-line {
+            overflow: hidden;
+            white-space: nowrap;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .terminal-line:nth-child(1) { animation-delay: 0s; }
+        .terminal-line:nth-child(2) { animation-delay: 1s; }
+        .terminal-line:nth-child(3) { animation-delay: 2s; }
+        .terminal-line:nth-child(4) { animation-delay: 3s; }
+        .terminal-line:nth-child(5) { animation-delay: 4s; }
+        .terminal-line:nth-child(6) { animation-delay: 5s; }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .terminal-line span {
+            color: #00d4ff;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background: #0f0;
+            animation: blink 0.75s step-end infinite;
+            vertical-align: text-bottom;
+        }
+
+        /* GLITCH TEXT */
+        .glitch {
+            font-size: 4rem;
+            font-weight: bold;
+            color: white;
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: 'HACK THE SYSTEM';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            color: #ff0000;
+            animation: glitch-1 2s infinite linear alternate-reverse;
+            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+        }
+
+        .glitch::after {
+            color: #0ff;
+            animation: glitch-2 3s infinite linear alternate-reverse;
+            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+        }
+
+        @keyframes glitch-1 {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes glitch-2 {
+            0% { transform: translate(0); }
+            20% { transform: translate(3px, -3px); }
+            40% { transform: translate(3px, 3px); }
+            60% { transform: translate(-3px, -3px); }
+            80% { transform: translate(-3px, 3px); }
+            100% { transform: translate(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Jednostavan typing -->
+    <div class="typing-container">
+        <div class="typing">Dobrodošli u CSS animacije!</div>
+    </div>
+
+    <!-- Terminal style -->
+    <div class="hacker-terminal">
+        <div class="terminal-header">
+            <div class="terminal-dot"></div>
+            <div class="terminal-dot"></div>
+            <div class="terminal-dot"></div>
+        </div>
+        <div class="terminal-content">
+            <div class="terminal-line"><span>$</span> Inicijalizacija sustava...</div>
+            <div class="terminal-line"><span>$</span> Učitavanje modula... OK</div>
+            <div class="terminal-line"><span>$</span> Povezivanje na server... OK</div>
+            <div class="terminal-line"><span>$</span> Dohvaćanje podataka...</div>
+            <div class="terminal-line"><span>$</span> STATUS: <span style="color: #27ca40;">CONNECTED</span></div>
+            <div class="terminal-line"><span>$</span> <span class="cursor"></span></div>
+        </div>
+    </div>
+
+    <!-- Glitch text -->
+    <div class="glitch">HACK THE SYSTEM</div>
+</body>
+</html>
