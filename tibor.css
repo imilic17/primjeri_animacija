@@ -1,0 +1,28 @@
+.button {
+    margin-top: 20%;
+    margin-left: 40%;
+    background: blue;
+    transition: background 0.3s ease;
+    rotate: 45deg;
+    scale: 2;
+    transform: translateX(20%);
+    transform: translateY(50%);
+}
+
+.button:hover {
+    background: red;
+}
+.button:active{
+    transform: translateX(6cm);
+    transform: translateY(5vw);
+}
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.element {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
