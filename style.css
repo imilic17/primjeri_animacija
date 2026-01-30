@@ -1,0 +1,29 @@
+.button {
+    background: blue;
+    animation: bounce 3s ease-in-out infinite;
+}
+
+.button:hover {
+    background: red;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform-origin: 0% 0%;
+        opacity: 1;
+        transform: translate(0px, 0px);
+        rotate: y 0deg;
+    }
+
+    20% {
+        transform: translate(200px, 50px);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translate(100px, 200px);
+        rotate: y 180deg;
+    }
+}
