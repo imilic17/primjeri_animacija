@@ -1,0 +1,38 @@
+.button {
+    background: blue;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: red;
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+.element { animation: pulse 2s ease-in-out infinite; }
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.Spinner { animation: spin 1s linear infinite; }
+
+.btn-play {
+            padding: 20px 60px;            /* Unutarnji razmak: 20px gore/dolje, 60px lijevo/desno */
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;     /* Pretvara tekst u VELIKA SLOVA */
+            color: rgb(219, 59, 59);
+            background: linear-gradient(45deg, #7e9abe, #7d97c2);  /* Plavi gradijent */
+            border: none;                  /* Uklanja default obrub gumba */
+            border-radius: 50px;           /* Zaobljeni uglovi - 50px stvara "pilulu" oblik */
+            cursor: pointer;               /* Pokazivač miša postaje "ruka" */
+            position: relative;            /* Potrebno za apsolutno pozicionirane child elemente */
+            overflow: hidden;              /* Skriva sve što izlazi izvan granica gumba */
+
+            /* GLAVNA ANIMACIJA - pulse efekt */
+            animation: pulse 2s infinite;
+            /* pulse = ime animacije
+               2s = trajanje
+               infinite = beskonačno ponavljanje */
+        }
