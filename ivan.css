@@ -1,0 +1,80 @@
+.button{
+    background: blue;
+    transition: background 0.3s ease;
+    animation: bounce 3s ease infinite;
+    animation: shake 3s ease infinite;
+}
+
+.button:hover{
+    background: red;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.element { animation: bounce 1s ease infinite; }
+
+.element { animation: shake 0.5s ease; }
+
+.social-icons-v1 {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons-v1 a {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: #fff;
+    background: #64748b;           /* Svijetlo siva pozadina kao baza */
+    border-radius: 50%;            /* Krug */
+    position: relative;            /* Za ::before pseudo-element */
+    overflow: hidden;              /* KLJUČNO! Skriva ::before kad izlazi izvan kruga */
+    text-decoration: none;         /* Uklanja podvlačenje linka */
+    transition: color 0.3s ease;
+    z-index: 1;                    /* Tekst iznad ::before */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* ::before stvara "ispunu" koja raste od dna */
+.social-icons-v1 a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;                     /* Počinje na dnu */
+    left: 0;
+    width: 100%;
+    height: 0;                     /* Počinje s visinom 0 - nevidljivo */
+    transition: height 0.3s ease;  /* Glatko povećanje visine */
+    z-index: -1;                   /* Iza teksta/ikone */
+    border-radius: 50%;
+}
+
+/* Na hover, ::before naraste na punu visinu */
+.social-icons-v1 a:hover::before {
+    height: 150%;
+}
+
+/* Svaka mreža ima svoju boju za ::before */
+.social-icons-v1 a.facebook::before { background: #1877f2; }
+.social-icons-v1 a.instagram::before { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.social-icons-v1 a.twitter::before { background: #1da1f2; }
+.social-icons-v1 a.youtube::before { background: #ff0000; }
+.social-icons-v1 a.tiktok::before { background: #000; }
+
+/* Dodatni hover efekt - ikona se podigne */
+.social-icons-v1 a:hover {
+    transform: translateY(-5px);   /* Podigne se za 5px */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);  /* Sjena za dubinu */
+}
+
