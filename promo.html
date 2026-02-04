@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberPunk App - Gaming Page</title>
+    <style>
+        /* ============================================
+           1. ANIMIRANA POZADINA (Svijetla gradijentna tema)
+           ============================================ */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            /* Svijetli gradijent koji se miče */
+            background: linear-gradient(-45deg, #f0f4f8, #d9e2ec, #bcccdc, #9fb3c8);
+            background-size: 400% 400%;
+            animation: backgroundShift 12s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes backgroundShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ============================================
+           2. NASLOV APLIKACIJE (Tvoj Neon Blue & Pink)
+           ============================================ */
+        .hero-container {
+            text-align: center;
+            margin-top: 50px;
+            background: white;
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .neon-text {
+            font-size: 5rem;
+            color: #1a5fb4;
+            text-shadow: 0 0 10px #3584e4, 0 0 20px #3584e4, 0 0 40px #3584e4;
+            animation: flicker 1.5s infinite alternate;
+            margin-right: 15px;
+        }
+
+       
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 0 0 10px #3584e4, 0 0 20px #3584e4, 0 0 40px #3584e4;
+            }
+            20%, 24%, 55% { text-shadow: none; }
+        }
+
+       
+
+        /* ============================================
+           3. DVA ANIMIRANA GUMBA (Različiti efekti)
+           ============================================ */
+        .button-group {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        /* Gumb 1: Pulse + Shake  */
+        .btn-download {
+            background: #1a5fb4;
+            color: white;
+        }
+
+        .btn-download:hover {
+            animation: shake 0.4s ease-in-out, pulse 1.2s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(3deg); }
+            75% { transform: rotate(-3deg); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(26, 95, 180, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(26, 95, 180, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(26, 95, 180, 0); }
+        }
+
+        /* Gumb 2: Sjaj + Pomak (Trailer) */
+        .btn-trailer {
+            background: #813d9c;
+            color: white;
+        }
+
+        .btn-trailer:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(129, 61, 156, 0.4);
+            filter: brightness(1.2);
+        }
+
+        /* ============================================
+           4. TRI KARTICE (Lift efekt)
+           ============================================ */
+        .card-section {
+            display: flex;
+            gap: 25px;
+            margin-top: 60px;
+            padding: 20px;
+        }
+        
+        .card {
+            background: white;
+            width: 220px;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            border-bottom: 5px solid #3584e4;
+        }
+
+        .card:hover {
+            transform: translateY(-15px); /* Lift efekt */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background: #fafafa;
+        }
+
+        .card h3 { color: #1a5fb4; margin-bottom: 10px; }
+        .card p { color: #666; font-size: 0.9rem; }
+
+       
+
+
+
+         /* ============================================
+           SEKCIJA 2 - PLUTAJUĆI KRUGOVI
+           Krugovi koji lebde gore-dolje - SVIJETLA VERZIJA
+           ============================================ */
+           .floating-bg {
+            background: linear-gradient(135deg, #e0f2fe, #f0f9ff);  /* Svijetlo plava */
+        }
+
+        .floating-bg .circle {
+            position: absolute;            /* Krugovi su pozicionirani apsolutno */
+            border-radius: 50%;            /* Savršeni krug */
+
+            /* Polu-prozirni plavi krugovi */
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+            border: 2px solid rgba(59, 130, 246, 0.3);
+
+            animation: float 20s infinite;
+        }
+
+        /* Svaki krug ima drugačiju veličinu, poziciju i delay */
+        .floating-bg .circle:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;                      /* 20% od vrha */
+            left: 10%;                     /* 10% od lijevog ruba */
+            animation-delay: 0s;           /* Počinje odmah */
+        }
+
+        .floating-bg .circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            left: 70%;
+            animation-delay: -5s;          /* Negativan delay = već je u animaciji */
+            /*
+               -5s znači: animacija se ponaša kao da je već prošlo 5 sekundi.
+               Krugovi su u različitim fazama animacije, ne kreću svi od početka.
+            */
+        }
+
+        .floating-bg .circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 40%;
+            left: 40%;
+            animation-delay: -10s;
+        }
+
+        .floating-bg .circle:nth-child(4) {
+            width: 80px;
+            height: 80px;
+            top: 70%;
+            left: 20%;
+            animation-delay: -15s;
+        }
+
+        .floating-bg .circle:nth-child(5) {
+            width: 250px;
+            height: 250px;
+            top: 10%;
+            left: 60%;
+            animation-delay: -7s;
+        }
+
+        /* ============================================
+           @KEYFRAMES FLOAT - Lebdenje gore-dolje s rotacijom
+           ============================================ */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                /* Na sredini: krug je 100px gore i rotiran 180° */
+                transform: translateY(-100px) rotate(180deg);
+                opacity: 1;                /* Svjetliji na vrhu putanje */
+            }
+            /*
+               Krug "pliva" gore-dolje dok se polako rotira.
+               Promjena opacity-ja daje efekt "pulsiranja".
+            */
+        }
+
+
+
+        /*FOOTER DRUŠTVENE MREŽE*/
+        .social-icons-v4 {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons-v4 a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        /* Boje za svaku mrežu */
+        .social-icons-v4 a.facebook { background: #1877f2; }
+        .social-icons-v4 a.instagram { background: linear-gradient(45deg, #f09433, #dc2743); }
+        .social-icons-v4 a.twitter { background: #1da1f2; }
+        .social-icons-v4 a.youtube { background: #ff0000; }
+        .social-icons-v4 a.twitch { background: #9146ff; }
+
+        /* Animacija se pokreće SAMO na hover (ne infinite) */
+        .social-icons-v4 a:hover {
+            animation: bounce 0.5s ease;
+        }
+
+        /* ============================================
+           @KEYFRAMES BOUNCE - Skakutanje gore-dolje
+           ============================================ */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }      /* Početak i kraj - normalno */
+            25% { transform: translateY(-15px); }       /* Prvi skok gore */
+            50% { transform: translateY(-5px); }        /* Malo pada */
+            75% { transform: translateY(-10px); }       /* Manji skok */
+            /*
+               Timing stvara efekt "odbijanja" kao loptica.
+               Svaki sljedeći skok je manji od prethodnog.
+            */
+        }
+
+       
+    </style>
+</head>
+<body>
+    <!-- Sekcija 2: Plutajući krugovi -->
+    <section class="floating-bg">
+        <!-- 5 krugova s različitim animation-delay -->
+        <div class="circle"></div>  <!-- nth-child(1) -->
+        <div class="circle"></div>  <!-- nth-child(2) -->
+        <div class="circle"></div>  <!-- nth-child(3) -->
+        <div class="circle"></div>  <!-- nth-child(4) -->
+        <div class="circle"></div>  <!-- nth-child(5) -->
+    </section>
+
+    <div class="hero-container">
+        <h1 style="margin: 0;">
+            <span class="neon-text">CYBER</span>
+          
+        </h1>
+        <p style="color: #666; margin-top: 15px; font-weight: bold; letter-spacing: 1px;">VERSUS REALITY 2026</p>
+        
+        <div class="button-group">
+            <button class="btn btn-download">PREUZMI IGRE</button>
+            <button class="btn btn-trailer">POGLEDAJ TRAILER</button>
+        </div>
+    </div>
+
+
+    <div class="card-section">
+        <div class="card">
+            <h3>🎮 Multiplayer</h3>
+            <p>Bori se protiv igrača širom svijeta u realnom vremenu.</p>
+        </div>
+        <div class="card" style="border-bottom-color: #813d9c;">
+            <h3>🚀 100+ Levela</h3>
+            <p>Istraži futuristički grad kroz stotine misija.</p>
+        </div>
+        <div class="card">
+            <h3>💎 Besplatno</h3>
+            <p>Započni svoju avanturu potpuno besplatno već danas.</p>
+        </div>
+    </div>
+
+       <!-- VERZIJA 4: Bounce efekt -->
+       <div class="social-icons-v4">
+           <a href="#" class="facebook">f</a>
+           <a href="#" class="instagram">&#128247;</a>   <!-- 📷 -->
+           <a href="#" class="twitter">&#120143;</a>      <!-- 𝕏 -->
+           <a href="#" class="youtube">&#9658;</a>        <!-- ▶ -->
+           <a href="#" class="twitch">&#128250;</a>       <!-- 📺 TV za Twitch -->
+       </div>   
+
+</body>
+</html>
