@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+*{ 
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+body {
+    font-family: Arial, sans-serif;
+}
+h1 {
+            color: #1e293b;                /* Tamna boja teksta */
+            font-size: 3rem;
+            text-shadow: 2px 2px 10px rgba(53, 229, 235, 0.8);  /* Svijetla sjena za čitljivost */
+            z-index: 10;                   /* Iznad animiranih elemenata */
+            background: rgba(182, 182, 182, 0.9);
+            padding: 20px 40px;
+            border-radius: 15px;
+        }
+        .stars-bg {
+            background: linear-gradient(180deg, #0b0352, #534bc0);  /* Svijetlo žuta */
+        }
+        section {
+            min-height: 100vh;             /* Svaka sekcija je minimalno puna visina ekrana */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;            /* Za apsolutno pozicionirane child elemente */
+            overflow: hidden;              /* Skriva elemente koji izlaze izvan sekcije */
+        }
+
+        .stars-bg .star {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ffee00;           /* Narančasta/zlatna zvijezda */
+            border-radius: 50%;            /* Mali krug */
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        /* Svaka zvijezda ima jedinstvenu poziciju i delay
+           nth-child omogućuje stiliziranje svake zvijezde posebno */
+        .star:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 20%; left: 40%; animation-delay: 0.3s; }
+        .star:nth-child(3) { top: 30%; left: 60%; animation-delay: 0.6s; }
+        .star:nth-child(4) { top: 40%; left: 80%; animation-delay: 0.9s; }
+        .star:nth-child(5) { top: 50%; left: 10%; animation-delay: 1.2s; }
+        .star:nth-child(6) { top: 60%; left: 30%; animation-delay: 1.5s; }
+        .star:nth-child(7) { top: 70%; left: 50%; animation-delay: 1.8s; }
+        .star:nth-child(8) { top: 80%; left: 70%; animation-delay: 0.2s; }
+        .star:nth-child(9) { top: 90%; left: 90%; animation-delay: 0.5s; }
+        .star:nth-child(10) { top: 15%; left: 85%; animation-delay: 0.8s; }
+        .star:nth-child(11) { top: 25%; left: 15%; animation-delay: 1.1s; }
+        .star:nth-child(12) { top: 35%; left: 35%; animation-delay: 1.4s; }
+        .star:nth-child(13) { top: 45%; left: 55%; animation-delay: 1.7s; }
+        .star:nth-child(14) { top: 55%; left: 75%; animation-delay: 0.1s; }
+        .star:nth-child(15) { top: 65%; left: 95%; animation-delay: 0.4s; }
+        .star:nth-child(16) { top: 75%; left: 5%; animation-delay: 0.7s; }
+        .star:nth-child(17) { top: 85%; left: 25%; animation-delay: 1.0s; }
+        .star:nth-child(18) { top: 95%; left: 45%; animation-delay: 1.3s; }
+        .star:nth-child(19) { top: 5%; left: 65%; animation-delay: 1.6s; }
+        .star:nth-child(20) { top: 12%; left: 50%; animation-delay: 1.9s; }
+        /*
+           Različiti delayevi čine da zvijezde ne trepću u isto vrijeme.
+           Stvara prirodniji, nasumični efekt.
+        */
+
+        /* ============================================
+           @KEYFRAMES TWINKLE - Treperenje zvijezde
+           ============================================ */
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;              /* Tamna zvijezda */
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;                /* Svijetla zvijezda */
+                transform: scale(1.5);     /* Malo veća kad sija */
+            }
+        }
+
+        /* ============================================
+           SHOOTING STAR - Zvijezda padalica
+           ============================================ */
+        .shooting-star {
+            position: absolute;
+            width: 100px;
+            height: 3px;
+
+            /* Gradijent od narančaste do prozirne - "rep" padalice */
+            background: linear-gradient(90deg, #f59e0b, transparent);
+
+            top: 20%;
+            left: -100px;                  /* Počinje izvan ekrana, lijevo */
+
+            animation: shoot 3s ease-in-out infinite;
+            animation-delay: 2s;           /* Čeka 2s prije prvog "pada" */
+        }
+
+        /* ============================================
+           @KEYFRAMES SHOOT - Let padalice dijagonalno
+           ============================================ */
+        @keyframes shoot {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                /* calc() omogućuje računanje: 100vw + 200px
+                   vw = viewport width, dakle padalica putuje
+                   preko cijelog ekrana plus 200px izvan */
+                transform: translateX(calc(100vw + 200px)) translateY(200px);
+                opacity: 0;                /* Blijedi kako pada */
+            }
+        }
+
+        /* ============================================
+           SCROLL HINT - Strelica koja pokazuje da se skrola
+           ============================================ */
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            color: #1e293b;
+            font-size: 0.9rem;
+            animation: bounce-down 2s infinite;
+            background: rgba(255,255,255,0.8);
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+
+        /* ============================================
+           @KEYFRAMES BOUNCE-DOWN - Lagano poskakivanje dolje
+           ============================================ */
+        @keyframes bounce-down {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }   /* Pomak dolje */
+        }
+
+        /* ============================================
+           RESPONZIVNI DIZAJN
+           ============================================ */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+                padding: 15px 25px;
+            }
+        }
+
+        /* ============================================
+           PRISTUPAČNOST - Za korisnike osjetljive na pokret
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            .gradient-bg,
+            .floating-bg .circle,
+            .stars-bg .star,
+            .shooting-star,
+            .scroll-hint {
+                animation: none;
+            }
+            /* Statička pozadina umjesto animacije */
+            .gradient-bg {
+                background-position: 50% 50%;
+            }
+        }
+
+        .btn-play {
+            padding: 20px 60px;            /* Unutarnji razmak: 20px gore/dolje, 60px lijevo/desno */
+            font-size: 1.5rem;
+            margin-top: 20%;
+            margin-right: 20%;
+            font-weight: bold;
+            text-transform: uppercase;     /* Pretvara tekst u VELIKA SLOVA */
+            color: white;
+            background: linear-gradient(45deg, #1a73e8, #4285f4);  /* Plavi gradijent */
+            border: none;                  /* Uklanja default obrub gumba */
+            border-radius: 50px;           /* Zaobljeni uglovi - 50px stvara "pilulu" oblik */
+            cursor: pointer;               /* Pokazivač miša postaje "ruka" */
+            position: relative;            /* Potrebno za apsolutno pozicionirane child elemente */
+            overflow: hidden;              /* Skriva sve što izlazi izvan granica gumba */
+
+            /* GLAVNA ANIMACIJA - pulse efekt */
+            animation: pulse 2s infinite;
+            /* pulse = ime animacije
+               2s = trajanje
+               infinite = beskonačno ponavljanje */
+        }
+
+        /* ============================================
+           @KEYFRAMES PULSE - Box-shadow se širi i blijedi
+           ============================================ */
+        @keyframes pulse {
+            0% {
+                /* box-shadow: h-offset v-offset blur spread color
+                   spread = koliko se sjena širi izvan elementa
+                   Počinjemo s 0 spread i 70% prozirnom bojom */
+                box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.7);
+            }
+            70% {
+                /* Sjena se proširila na 20px, ali je potpuno prozirna (0 na kraju)
+                   Stvara efekt "prstena" koji se širi */
+                box-shadow: 0 0 0 20px rgba(26, 115, 232, 0);
+            }
+            100% {
+                /* Vraćamo na početak za glatki prijelaz */
+                box-shadow: 0 0 0 0 rgba(26, 115, 232, 0);
+            }
+        }
+
+        /* Hover efekt - gumb se poveća kad prijeđeš mišem */
+        .btn-play:hover {
+            transform: scale(1.1);         /* Povećava za 10% */
+            transition: transform 0.3s ease;  /* Glatka animacija promjene (ease = postupno ubrzanje pa usporenje) */
+        }
+
+        .btn-epic {
+            padding: 20px 60px;
+            font-size: 1.5rem;
+            margin-top: 20%;
+            margin-left: 20%;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;                   /* Tamni tekst na svijetloj pozadini */
+            background: white;             /* Bijela pozadina gumba */
+            border: 4px solid transparent; /* Prozirni obrub - duga će biti iza njega */
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;            /* VAŽNO! Omogućuje ::before i ::after pozicioniranje */
+            z-index: 1;                    /* Gumb je iznad pseudo-elemenata */
+        }
+
+        /* ============================================
+           ::BEFORE PSEUDO-ELEMENT - DUGA POZADINA
+           Stvara rainbow gradient IZA gumba
+           ============================================ */
+        .btn-epic::before {
+            content: '';                   /* OBAVEZNO za pseudo-element - može biti prazan */
+            position: absolute;            /* Apsolutno pozicioniranje unutar roditelja */
+
+            /* Pozicioniramo 4px izvan gumba sa svih strana
+               (to je debljina "obruba" duge) */
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+
+            /* RAINBOW GRADIENT - 9 boja koje se ponavljaju */
+            background: linear-gradient(45deg,
+                #e2cd9f,    /* Crvena */
+                #ebb386,    /* Narančasta */
+                #89c583,    /* Žuta */
+                #95e078,    /* Zelena */
+                #8be4d5,    /* Tirkizna */
+                #8998e2,    /* Plava */
+                #b483e9,    /* Ljubičasta */
+                #e28dd0,    /* Magenta */
+                #df8a8a     /* Opet crvena - za glatki prijelaz */
+            );
+
+            /* background-size: 400% čini gradient 4x širi od elementa
+               To nam omogućuje da "pomičemo" gradient kroz element */
+            background-size: 400%;
+
+            border-radius: 12px;           /* Malo veći radius jer je element veći */
+            z-index: -1;                   /* IZA gumba ali iznad ::after */
+
+            animation: rainbow 20s linear infinite;
+            /* linear = konstantna brzina (bez ubrzanja/usporenja)
+               20s = sporo, za glatki efekt */
+        }
+
+        /* ============================================
+           ::AFTER PSEUDO-ELEMENT - POZADINA GUMBA
+           Prekriva sredinu duge, ostavljajući samo "obrub"
+           ============================================ */
+        .btn-epic::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;             /* Bijela - prekriva sredinu duge */
+            border-radius: 6px;
+            z-index: -1;                   /* Između gumba i ::before (duge) */
+        }
+
+        /* ============================================
+           @KEYFRAMES RAINBOW - Pomiče gradient poziciju
+           ============================================ */
+        @keyframes rainbow {
+            0% { background-position: 0 0; }       /* Početna pozicija */
+            50% { background-position: 400% 0; }   /* Pomiče se za 400% (cijeli gradient) */
+            100% { background-position: 0 0; }     /* Vraća se na početak */
+            /* Ovaj krug stvara beskonačno "protjecanje" boja */
+        }
+
+        h1 {
+            color: #333;                   /* Tamni tekst */
+            margin-bottom: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Sekcija 3: Zvjezdano nebo (zlatne zvijezde) -->
+    <section class="stars-bg">
+        <!-- 20 zvijezda - svaka ima jedinstvenu poziciju i delay -->
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <!-- Shooting star -->
+        <div class="shooting-star"></div>
+        <h1>Mafia</h1>
+        <button type="button" class="btn-play">preuzmi igricu </button>
+        <button type="button" class="btn-epic">pogledaj trailer </button>
+    </section>
+            </style>
+</head>
+
+<body>
+    
+   
+
+</body>
+</html>
