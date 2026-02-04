@@ -19,29 +19,19 @@
             gap: 30px;                     /* Razmak između gumbova */
             font-family: 'Arial', sans-serif;
         }
-
-        /* ============================================
-           PLAY BUTTON - PULSE (PULSIRANJE) EFEKT
-           Gumb koji "diše" - ima animirani obrub koji se širi
-           ============================================ */
+        
         .btn-play {
-            padding: 20px 60px;            /* Unutarnji razmak: 20px gore/dolje, 60px lijevo/desno */
+            padding: 20px 60px;
             font-size: 1.5rem;
             font-weight: bold;
-            text-transform: uppercase;     /* Pretvara tekst u VELIKA SLOVA */
+            text-transform: uppercase;
             color: white;
-            background: linear-gradient(45deg, #1a73e8, #4285f4);  /* Plavi gradijent */
-            border: none;                  /* Uklanja default obrub gumba */
-            border-radius: 50px;           /* Zaobljeni uglovi - 50px stvara "pilulu" oblik */
-            cursor: pointer;               /* Pokazivač miša postaje "ruka" */
-            position: relative;            /* Potrebno za apsolutno pozicionirane child elemente */
-            overflow: hidden;              /* Skriva sve što izlazi izvan granica gumba */
-
-            /* GLAVNA ANIMACIJA - pulse efekt */
+            background: linear-gradient(45deg, #1a73e8, #4285f4);
+            border: none;
+            border-radius: 50px;cursor: pointer;
+            position: relative;
+            overflow: hidden;
             animation: pulse 2s infinite;
-            /* pulse = ime animacije
-               2s = trajanje
-               infinite = beskonačno ponavljanje */
         }
 
         /* ============================================
