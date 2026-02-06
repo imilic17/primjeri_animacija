@@ -1,0 +1,19 @@
+.button {
+    background: rgb(92, 92, 190);
+    transition: background 0.3s ease;
+    
+}
+
+.button:hover {
+    background: rgb(228, 212, 120);
+    
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.button 
+{ animation: shake 0.5s ease infinite; }
