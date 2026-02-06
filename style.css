@@ -1,0 +1,16 @@
+.button {
+    background: rgb(255, 217, 0);
+    transition: background 1.8s ease;
+    border-radius: 12px;
+}
+
+.button:hover {
+    background: red;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+#gumb { animation: bounce 2s ease-in infinite; 
+background: rgb(248, 8, 8);
+border-radius: 12px;}
