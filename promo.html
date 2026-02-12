@@ -14,6 +14,7 @@
  section {
             min-height: 100vh;             /* Svaka sekcija je minimalno puna visina ekrana */
             display: flex;
+            flex-direction: column; /*DODAN FLEX DIRECTION ZA VERTIKALNO PORAVNANJE GLITCHA I KARTICA JER JE DEFAULT ROW*/
             justify-content: center;
             align-items: center;
             position: relative;            /* Za apsolutno pozicionirane child elemente */
@@ -34,9 +35,18 @@
             position: relative;            /* Za pozicioniranje ::before i ::after */
         }
 
+        .vodoravne_kartice{  /* DODAN KONTEJNER ZA KARTICE KOJI JE FLEX CONTAINER  */
+            text-align: center;
+            /*display: flex;
+            justify-content: center;
+            align-items: center;   OVO SE KORISTI AKO ŽELIMO TO SA FLEXBOXOM RIJEŠITI
+                ALI IPAK ĆEMO SE ODLUČITI ZA DISPLAY BLOK KOJI SE POSTVLJA NA SVAKI CARD*/
+        }
+
  body {
             background: linear-gradient(135deg, #e8f0fe, #f3e8ff);  /* Svijetli gradijent */
             min-height: 100vh;
+            
             display: flex;
             flex-wrap: wrap;               /* Kartice prelaze u novi red na manjim ekranima */
             justify-content: center;
@@ -48,7 +58,7 @@
         .gradient-bg {
             /* linear-gradient s 4 SVIJETLE boje */
             background: linear-gradient(-45deg, #fecaca, #fbcfe8, #bfdbfe, #bbf7d0);
-
+            width: 80%; /*DALI 80 POSTO OD ŠIRINE EKRANA DA BI SE VIDJELA ANIMACIJA GRADIJENTA*/
             /* TRIK! Gradient je 4x veći od elementa (400% x 400%)
                To nam omogućuje da ga "pomičemo" bez ponavljanja */
             background-size: 400% 400%;
@@ -75,6 +85,9 @@
            Najjednostavniji hover efekt - kartica se "podigne"
            ============================================ */
         .card {
+            display: inline-block;      /*DODALI INLINE BLOCK - Omogućuje da kartice budu jedna pored druge
+                                    RADI DRUGAČIJE OD FLEXA - STAVLJA SE NA DJECU, NE NA KONTEJNER
+                                    ALI SMO PORAVNALI U SREDINU ZAHVALJUJUĆI TEXT-ALING:CENTER U KONTEJNERU VODORAVNE_KARTICE */
             width: 280px;
             height: 350px;
             background: white;
@@ -136,7 +149,12 @@
             <div class="glitch">SAH</div>
         </div>
    
-
+        <div class="card-img">&#127918;</div>  <!-- 🎮 Gaming emoji -->
+        <div class="card-content">
+            <h3>Gaming Zone</h3>
+            <p>Prijeđi mišem preko kartice da vidiš lift efekt. Koristi se na većini modernih stranica.</p>
+        </div>
+<div class ="vodoravne_kartice">
     <div class="card">
         <div class="card-img">&#127918;</div>  <!-- 🎮 Gaming emoji -->
         <div class="card-content">
@@ -160,6 +178,7 @@
             <p>Prijeđi mišem preko kartice da vidiš lift efekt. Koristi se na većini modernih stranica.</p>
         </div>
     </div> 
+    </div>
 </section>
 </body>
 </html>
