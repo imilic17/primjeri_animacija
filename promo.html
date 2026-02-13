@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt: Moja Animirana Aplikacija</title>
+    <style>
+        /* ============================================
+           LOADING ANIMACIJA (Music Bars)
+           ============================================ */
+        #loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            /* Animacija nestajanja cijelog loadera */
+            animation: fadeOut 0.8s forwards 2s; 
+        }
+
+        .bars {
+            display: flex;
+            gap: 4px;
+            align-items: end;
+            height: 50px;
+        }
+
+        .bars span {
+            width: 8px;
+            background: linear-gradient(to top, #1a73e8, #4285f4);
+            animation: bars 1s ease-in-out infinite;
+        }
+
+        .bars span:nth-child(1) { animation-delay: 0s; }
+        .bars span:nth-child(2) { animation-delay: 0.1s; }
+        .bars span:nth-child(3) { animation-delay: 0.2s; }
+        .bars span:nth-child(4) { animation-delay: 0.3s; }
+        .bars span:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes bars {
+            0%, 100% { height: 10px; }
+            50% { height: 50px; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        /* ============================================
+           ZADATAK 1 - ANIMIRANA POZADINA
+           ============================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 60px 20px;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #fecaca, #fbcfe8, #bfdbfe, #bbf7d0);
+            background-size: 400% 400%;
+            animation: gradientPozadina 15s ease infinite;
+        }
+
+        @keyframes gradientPozadina {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ============================================
+           HERO SEKCIJA (NASLOV I GUMBOVI)
+           ============================================ */
+        .hero-section {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 60px;
+        }
+
+        /* ZADATAK 2 - TYPING NASLOV */
+        .typing-text {
+            font-size: 2.5rem;
+            color: #1a73e8;
+            font-weight: 800;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid #1a73e8;
+            width: 0;
+            margin: 0 auto 40px auto;
+            animation: tipkanje 4s steps(26, end) forwards, treperenje 0.75s step-end infinite;
+        }
+
+        @keyframes tipkanje { from { width: 0; } to { width: 100%; } }
+        @keyframes treperenje { from, to { border-color: transparent; } 50% { border-color: #1a73e8; } }
+
+        /* ZADATAK 3 - ANIMIRANI GUMBOVI */
+        .button-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        button {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .btn-download { background: linear-gradient(45deg, #22c55e, #16a34a); color: white; animation: pulseEffect 2s infinite; }
+        .btn-trailer { background: linear-gradient(45deg, #3b82f6, #2563eb); color: white; }
+        .btn-trailer:hover { animation: shakeEffect 0.5s ease-in-out; transform: scale(1.1); }
+
+        @keyframes pulseEffect {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        @keyframes shakeEffect {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+
+        /* ============================================
+           ZADATAK 4 - KARTICE (LIFT EFEKT)
+           ============================================ */
+        .features-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            width: 300px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .feature-card:hover { transform: translateY(-20px); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
+
+        .card-header { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .bg-blue   { background: linear-gradient(45deg, #1e3a8a, #3b82f6); }
+        .bg-green  { background: linear-gradient(45deg, #064e3b, #10b981); }
+        .bg-purple { background: linear-gradient(45deg, #4c1d95, #8b5cf6); }
+
+        .card-body { padding: 30px 20px; }
+        .card-body h3 { margin-bottom: 15px; color: #1f2937; }
+        .card-body p { color: #6b7280; line-height: 1.6; }
+
+        /* ============================================
+           ZADATAK 5 - FOOTER SOCIAL IKONE (TOOLTIP)
+           ============================================ */
+        footer {
+            margin-top: auto;
+            padding: 40px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-icons a {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: #fff;
+            background: #64748b;
+            border-radius: 50%;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .social-icons a::after {
+            content: attr(data-name);
+            position: absolute;
+            top: -45px;
+            background: #333;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .social-icons a:hover::after { opacity: 1; transform: translateY(0); }
+        .social-icons a:hover { transform: translateY(-10px); }
+
+        .facebook:hover { background: #1877f2; box-shadow: 0 10px 25px rgba(24, 119, 242, 0.5); }
+        .instagram:hover { background: linear-gradient(45deg, #f09433, #dc2743); box-shadow: 0 10px 25px rgba(220, 39, 67, 0.5); }
+        .twitter:hover { background: #000; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
+
+        @media (max-width: 768px) {
+            .typing-text { font-size: 1.6rem; }
+            .feature-card { width: 100%; max-width: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader-overlay">
+        <div class="bars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="hero-section">
+        <h1 class="typing-text">Moja Animirana Aplikacija!</h1>
+        <div class="button-group">
+            <button class="btn-download">Preuzmi App</button>
+            <button class="btn-trailer">Pogledaj trailer</button>
+        </div>
+    </div>
+
+    <div class="features-container">
+        <div class="feature-card">
+            <div class="card-header bg-blue">👥</div>
+            <div class="card-body">
+                <h3>Multiplayer</h3>
+                <p>Mogućnost igranja s prijateljima.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="card-header bg-green">🎮</div>
+            <div class="card-body">
+                <h3>100+ Levela</h3>
+                <p>Istraži epske svjetove i nove izazove.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="card-header bg-purple">💰</div>
+            <div class="card-body">
+                <h3>Besplatno</h3>
+                <p>Bez plaćanja . Samo zabava.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#" class="facebook" data-name="Facebook">f</a>
+            <a href="#" class="instagram" data-name="Instagram">📷</a>
+            <a href="#" class="twitter" data-name="X / Twitter">𝕏</a>
+        </div>
+    </footer>
+
+</body>
+</html>

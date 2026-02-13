@@ -1,0 +1,61 @@
+.button {
+    background: blue;
+    transition: background 0.3s ease;
+    animation:  bounce 3s ease infinite;
+    animation: shake 3s ease infinite;
+}
+
+.button:hover {
+    background: red;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.social-icons-v2 {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons-v2 a {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #fff;
+    border-radius: 15px;           /* Zaobljeni kvadrat */
+    text-decoration: none;
+
+    /* transition: all omogućuje animaciju SVIH svojstava */
+    transition: all 0.4s ease;
+}
+
+/* Boje za svaku mrežu */
+        .social-icons-v2 a.facebook { background: #1877f2; }
+        .social-icons-v2 a.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .social-icons-v2 a.twitter { background: #1da1f2; }
+        .social-icons-v2 a.youtube { background: #ff0000; }
+        .social-icons-v2 a.discord { background: #5865f2; }
+
+        .social-icons-v2 a:hover {
+            /* KOMBINACIJA TRANSFORMACIJA u jednom svojstvu! */
+            transform: rotate(180deg) scale(1.2);
+            /* rotate(360deg) = puna rotacija
+               scale(1.2) = povećanje za 20% */
+
+            border-radius: 50%;            /* Iz kvadrata postaje krug */
+
+            /* currentColor koristi trenutnu boju teksta (color: #fff)
+               ali box-shadow ga koristi za sjaj - efekt "glow" */
+            box-shadow: 0 0 30px currentColor;
+        }
