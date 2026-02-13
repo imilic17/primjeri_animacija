@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button{
+            padding: 10px 25px;
+            margin: 0 10px;
+            border: 2px solid black;
+            font-size: 14px;
+        }
+
+        .features{
+            margin-bottom: 40px;
+        }
+
+        .feature{
+            display: inline;
+            width: 200px;
+            padding: 20px;
+            margin: 10px;
+            border: 2px dashed #4e4949;
+            background-color: white;
+        }
+
+        .gradient-bg {
+            /* linear-gradient s 4 SVIJETLE boje */
+            background: linear-gradient(-45deg, #eb4141, #ee8ec4, #73a9eb, #45e77e);
+
+            /* TRIK! Gradient je 4x veći od elementa (400% x 400%)
+               To nam omogućuje da ga "pomičemo" bez ponavljanja */
+            background-size: 400% 400%;
+
+            animation: gradient 15s ease infinite;
+        }
+
+        /* ============================================
+           @KEYFRAMES GRADIENT - Pomiče poziciju gradienta
+           ============================================ */
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }      /* Lijevo, sredina vertikalno */
+            50% { background-position: 100% 50%; }   /* Desno, sredina vertikalno */
+            100% { background-position: 0% 50%; }    /* Vraća se na početak */
+            /*
+               Gradient se pomiče s lijeva na desno i natrag.
+               Budući da je 400% velik, vidimo "protjecanje" boja.
+            */
+        }
+
+        .neon-text {
+            font-size: 5rem;               /* rem = relativna jedinica prema root font-size (obično 16px), dakle 5rem = 80px */
+            color: #b41a1a;                /* Tamno plava boja teksta - vidljiva na svijetloj pozadini */
+
+            /* TEXT-SHADOW stvara neon efekt!
+               Format: horizontal-offset vertical-offset blur-radius color
+               Više sjena s većim blur-om stvara intenzivniji sjaj */
+            text-shadow:
+                0 0 10px #db3f3a,          /* Plava - prvi sloj sjaja, malo zamućen */
+                0 0 20px #db3f3a,          /* Drugi sloj - više zamućen, širi se dalje */
+                0 0 40px #db3f3a,          /* Treći sloj - još širi */
+                0 0 80px #db3f3a;          /* Četvrti sloj - najširi, stvara "auru" */
+
+            /* ANIMATION svojstvo:
+               ime-animacije trajanje ponavljanje smjer */
+            animation: flicker 1.5s infinite alternate;
+            /* flicker = ime @keyframes animacije
+               1.5s = trajanje jednog ciklusa
+               infinite = ponavlja se beskonačno
+               alternate = ide naprijed pa nazad (0%->100%->0%->100%...) */
+        }
+
+        /* ============================================
+           @KEYFRAMES - Definicija animacije treperenja
+           ============================================ */
+        @keyframes flicker {
+            /* Postotak označava trenutak u animaciji
+               Možemo grupirati više postotaka ako imaju iste stilove */
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                /* U ovim trenucima neon svijetli normalno */
+                text-shadow:
+                    0 0 10px #db3f3a,
+                    0 0 20px #db3f3a,
+                    0 0 40px #db3f3a,
+                    0 0 80px #db3f3a;
+            }
+            20%, 24%, 55% {
+                /* U ovim trenucima neon se "gasi" - simulira treperenje
+                   kao prava neon cijev! */
+                text-shadow: none;
+            }
+        }
+
+        .btn-play {
+            padding: 20px 60px;            /* Unutarnji razmak: 20px gore/dolje, 60px lijevo/desno */
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;     /* Pretvara tekst u VELIKA SLOVA */
+            color: rgb(0, 0, 0);
+            background: linear-gradient(45deg, #e8961a, #b6800c);  /* Plavi gradijent */
+            border: none;                  /* Uklanja default obrub gumba */
+            border-radius: 50px;           /* Zaobljeni uglovi - 50px stvara "pilulu" oblik */
+            cursor: pointer;               /* Pokazivač miša postaje "ruka" */
+            position: relative;            /* Potrebno za apsolutno pozicionirane child elemente */
+            overflow: hidden;              /* Skriva sve što izlazi izvan granica gumba */
+
+            /* GLAVNA ANIMACIJA - pulse efekt */
+            animation: pulse 2s infinite;
+            /* pulse = ime animacije
+               2s = trajanje
+               infinite = beskonačno ponavljanje */
+        }
+
+        /* ============================================
+           @KEYFRAMES PULSE - Box-shadow se širi i blijedi
+           ============================================ */
+        @keyframes pulse {
+            0% {
+                /* box-shadow: h-offset v-offset blur spread color
+                   spread = koliko se sjena širi izvan elementa
+                   Počinjemo s 0 spread i 70% prozirnom bojom */
+                box-shadow: 0 0 0 0 rgba(230, 121, 19, 0.7);
+            }
+            70% {
+                /* Sjena se proširila na 20px, ali je potpuno prozirna (0 na kraju)
+                   Stvara efekt "prstena" koji se širi */
+                box-shadow: 0 0 0 20px rgba(230, 121, 19, 0);
+            }
+            100% {
+                /* Vraćamo na početak za glatki prijelaz */
+                box-shadow: 0 0 0 0 rgba(230, 121, 19, 0);
+            }
+        }
+
+        /* Hover efekt - gumb se poveća kad prijeđeš mišem */
+        .btn-play:hover {
+            transform: scale(1.1);         /* Povećava za 10% */
+            transition: transform 0.3s ease;  /* Glatka animacija promjene (ease = postupno ubrzanje pa usporenje) */
+        }
+
+        .feature {
+            /*width: 280px;
+            height: 350px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;              /* Skriva sve što izlazi izvan kartice */
+            /*box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+            /* TRANSITION - Ključno za glatke hover efekte!
+               all = primjenjuje se na SVA svojstva koja se promijene
+               0.4s = trajanje prijelaza
+               ease = počinje sporo, ubrza, pa uspori na kraju */
+            transition: all 0.6s ease;
+            cursor: pointer;
+        }
+
+        /* HOVER STATE - Što se događa kad miš prijeđe preko */
+        .feature:hover {
+            /* translateY(-20px) pomiče karticu 20px GORE (negativno = gore)
+               Stvara iluziju da se kartica "podigla" */
+            transform: translateY(-20px);
+
+            /* box-shadow dodaje sjenu koja pojačava 3D efekt
+               0 30px 60px = bez horizontalnog pomaka, 30px vertikalno, 60px blur
+               Veća sjena = kartica izgleda kao da je više podignuta */
+            box-shadow: 0 30px 60px rgba(71, 69, 69, 0.486);
+        }
+    </style>
+</head>
+<section class="gradient-bg">
+<body>
+        <h1 class="neon-text">Naziv aplikacije</h1>
+        <div>Opis</div>
+        <div>
+            <button class="btn-play">PREUZMI</button>
+            <button class="btn-play">TRAILER</button>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <strong>Feature 1</strong>
+                <p>Kratki opis</p>
+            </div>
+            <div class="feature">
+                <strong>Feature 2</strong>
+                <p>Kratki opis</p>
+            </div>
+            <div class="feature">
+                <strong>Feature 3</strong>
+                <p>Kratki opis</p>
+            </div>
+        </div>
+</body>
+</section>
+</html>
