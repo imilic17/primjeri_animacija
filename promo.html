@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+
+        *{
+            margin:0;
+            padding:0;
+        }
         h1{
             display: flex;
             justify-content: center;
@@ -37,6 +42,15 @@
             background-color: white;
         }
 
+        .social{
+            margin-bottom: 30px;
+        }
+
+        .social span{
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
         .gradient-bg {
             /* linear-gradient s 4 SVIJETLE boje */
             background: linear-gradient(-45deg, #eb4141, #ee8ec4, #73a9eb, #45e77e);
@@ -44,6 +58,7 @@
             /* TRIK! Gradient je 4x veći od elementa (400% x 400%)
                To nam omogućuje da ga "pomičemo" bez ponavljanja */
             background-size: 400% 400%;
+            height: 100vh;
 
             animation: gradient 15s ease infinite;
         }
@@ -178,16 +193,80 @@
                Veća sjena = kartica izgleda kao da je više podignuta */
             box-shadow: 0 30px 60px rgba(71, 69, 69, 0.486);
         }
+
+        /*.social-icons-v3 {
+            display: flex;
+            gap: 20px;
+        }*/
+
+        .social span{
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+            background: #64748b;
+            border-radius: 50%;
+            text-decoration: none;
+            position: relative;            /* Za ::after tooltip */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* ::after stvara tooltip koji se pojavi na hover */
+        .social span::after {
+            /* ATTR() funkcija čita vrijednost HTML atributa!
+               data-name="Facebook" u HTML-u -> content prikazuje "Facebook" */
+            content: attr(data-name);
+
+            position: absolute;
+            bottom: -40px;                 /* Ispod ikone */
+            background: #fff;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+
+            opacity: 0;                    /* Nevidljivo na početku */
+            transform: translateY(-10px);  /* Malo gore od krajnje pozicije */
+            transition: all 0.3s ease;
+            white-space: nowrap;           /* Sprječava prelom teksta */
+        }
+
+        /* Na hover tooltip postaje vidljiv i pada na mjesto */
+        .social span:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Ikona se podigne na hover */
+        .social span:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Svaka mreža ima svoju boju pozadine i sjaja na hover */
+        .social span.social1:hover { background: linear-gradient(45deg, #f09433, #dc2743); box-shadow: 0 10px 30px #dc2743; }
+        .social span.social2:hover { background: linear-gradient(45deg, #0e35e0, #554eb8); box-shadow: 0 10px 30px #1633d6; }
+        .social span.social3:hover { background: linear-gradient(45deg, #ae07e0, #7e2b7a); box-shadow: 0 10px 30px #8b27dc; }
+        .social span.social4:hover { background: linear-gradient(45deg, #38e00e, #2f8649); box-shadow: 0 10px 30px #37e920; }
     </style>
 </head>
-<section class="gradient-bg">
+
 <body>
+    <section class="gradient-bg">
+        <br>
         <h1 class="neon-text">Naziv aplikacije</h1>
+        <br><br>
         <div>Opis</div>
+        <br><br>
         <div>
             <button class="btn-play">PREUZMI</button>
             <button class="btn-play">TRAILER</button>
         </div>
+        <br><br>
         <div class="features">
             <div class="feature">
                 <strong>Feature 1</strong>
@@ -202,6 +281,12 @@
                 <p>Kratki opis</p>
             </div>
         </div>
+        <div class="social">
+            <span class="social1">🌐</span>
+            <span class="social2">📷</span>
+            <span class="social3">🎮</span>
+            <span class="social4">🎵</span>
+        </div>
+    </section>
 </body>
-</section>
 </html>
