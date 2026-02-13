@@ -15,34 +15,72 @@ body{
     height: 100vh;
     background: linear-gradient(
         to bottom left,
-        #903798
-        #27c392 10%,
-        #15b294 30%,
-        #b3528d 50%,
-        #c2b530 70%
+        #011f2f
+        #1251cb 25%
+        #128587 50%,
+        #15b294 75%,
+        #15c3b5 100%
     );
     background-size: 300% 300%;
-    animation: gradientMove 85s ease infinite;
+    animation: gradientMove 20s ease infinite;
+    color: white;
+    font-weight: bold;
 }
 @keyframes gradientMove {
-    0% {background-color: #c2b530}
-    25% {background-color: #b3528d}
-    50% {background-color: #15b294}
-    75% {background-color: #27c392}
-    100% {background-color: #903798}
+    0% {background-color: #011f2f}
+    10% {background-color: #1251cb}
+    20% {background-color: #128587}
+    30% {background-color: #15b294}
+    40% {background-color: #128587}
+    50% {background-color: #1251cb}
+    60% {background-color: #1241ba}
+    70% {background-color: #1251cb}
+    90% {background-color: #128587}
+    100%{background-color: #15c3b5;}
 }
 
 h1{
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
     text-align: center;
-    margin-top: 20%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    animation: 
+    typing 2.5s steps(40, end),
+    blink-caret .55s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 50% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #fff; }
+}
+.header{
+   background-color: #011f2f; 
+   margin-left: 33%;
+   margin-right: 33%;
+   margin-top: 4.125889%;
+   padding-top: 3.258897%;
+   padding-bottom: 3.258897%;
+   border-radius: 15px;
 }
 
     </style>
+    <link rel="icon" type="image/x-icon" href="Snimka zaslona 2026-02-13 085524.png">
 </head>
 <body>
+    <div class="header">
     <h1>
-        WELCOME TO THE WORLD OF FUTURE
-    </h1>
+        VeloCity
+    </h1>    
+</div>
+    <div>
+        <i></i>
+    </div>
     
 </body>
 </html>
