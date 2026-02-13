@@ -13,6 +13,17 @@
             text-align: center
         }
 
+        .container{
+            width: 100%;
+            min-height: 100vh;
+            background-color: #1a1a1a;
+        }
+
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+
         body {
         background: #84b6e7;           /* Svijetla pozadina */
         min-height: 100vh;
@@ -25,6 +36,7 @@
         }
         .gradient-bg {
             background: linear-gradient(-45deg, #925151, #52252c, #1f2935, #6fbe26);
+            width: 80%;
             background-size: 500% 500%;
             animation: gradient 20s ease infinite;
         }
@@ -32,16 +44,6 @@
             0% { background-position: 70% 80%; }
             50% { background-position: 100% 800%; }
             100% { background-position: 70% 60%; } 
-        }
-        body {
-            background: #6ba9e7;           /* Svijetla pozadina */
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            font-family: 'Courier New', monospace;  /* Monospace font = sva slova iste širine (kao u terminalu) */
         }
 
         /* ============================================
@@ -105,6 +107,8 @@
         }
 
         .typing-container {
+            justify-content: center;
+            align-items: center;
             display: flex;
             width: fit-content;            /* Širina se prilagođava sadržaju */
             background: white;
@@ -213,12 +217,14 @@
             /* Ova izmjena lijevo-desno stvara efekt tresenja */
         }
         .card {
+        display: inline-block;
             width: 280px;
             height: 350px;
             background: white;
             border-radius: 20px;
             overflow: hidden;              /* Skriva sve što izlazi izvan kartice */
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 2em;
 
             /* TRANSITION - Ključno za glatke hover efekte!
                all = primjenjuje se na SVA svojstva koja se promijene
@@ -561,6 +567,7 @@
     </style>
 </head>
 <body>
+    <section class="gradient-bg">
     <h1>Event Finder</h1>
 
     <!-- Pulse gumb - ima pulsiranje oko sebe -->
@@ -569,7 +576,7 @@
     <!-- Danger gumb - trese se na hover -->
     <button class="btn-danger">Preuzmi</button>
     
-    <section class="gradient-bg">
+  
         <p class="scroll-hint">&#8595;</p>  <!-- ↓ strelica dolje -->
 
         <div class="typing-container">
@@ -584,19 +591,18 @@
         </div>
     
         <!-- Kartica 2 - Overlay s zoom efektom -->
-        <div class="card-overlay">
-            <div class="card-overlay-bg"></div>
-            <div class="card-overlay-content">
+        <div class="card">
+            <div class="card-img">&#127918;</div>  <!-- 🎮 Gaming emoji -->
+            <div class="card-content">
                 <h3>Info</h3>
                 <p>Tekst se pojavi na hover. Pozadina se zoomira. Super za portfolije!</p>
             </div>
         </div>
     
         <!-- Kartica 3 - 3D Flip kartica -->
-        <div class="card-flip">
-            <div class="card-flip-inner">
-                <!-- Prednja strana - vidljiva na početku -->
-                <div class="card-flip-front">
+        <div class="card">
+            <div class="card-img">&#127918;</div>  <!-- 🎮 Gaming emoji -->
+            <div class="card-content">
                     <span>&#129412;</span>  <!-- 🦄 Jednorog emoji -->
                     <h3>Okreni me!</h3>
                 </div>
