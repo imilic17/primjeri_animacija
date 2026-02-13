@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookapp</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    align-items: center;
+    background: linear-gradient(-40deg, #70585d, #744751, #aa7d85, #b8979e);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+section {
+    padding: 60px 20px;
+    align-items: center;
+}
+
+
+.typing {
+            font-size: 2rem;
+            color:#571e2a;                
+            overflow: hidden;              
+            white-space: nowrap;    
+            border-right: 3px solid #4e3636;                         
+            animation:
+                typing 3.5s steps(7, end) forwards,
+                blink 0.75s step-end infinite;
+          
+        }
+
+        @keyframes typing {
+            from { width: 0; }            
+            to { width: 100%; }           
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }  
+            50% { border-color: #4b3333; }         
+        }
+
+        .typing-container {
+            display: flex;
+            margin: auto;
+            width: fit-content;            
+            background: white;
+            padding: 10px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.39);
+        }
+
+
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 15px 30px;
+    margin: 10px;
+    background:#4b2d32;
+    color: rgb(255, 255, 255);  
+    border: solid 2px white;
+    cursor: pointer;
+    position: relative; 
+    font-size: 18px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+
+.btn-download {     
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                
+                box-shadow: 0 0 0 20px rgba(26, 115, 232, 0);
+            }
+            100% {
+                
+                box-shadow: 0 0 0 0 rgba(26, 115, 232, 0);
+            }
+        }
+        .btn-download:hover {
+            transform: scale(1.1);         
+            transition: transform 0.3s ease;  
+        }
+
+.btn-trailer:hover {
+    animation: shake 0.3s ease-in;
+}
+
+@keyframes shake {
+    0% {transform: translateX(0);}
+    25% {transform: translateX(-5px);}
+    50% {transform: translateX(5px);}
+    75% {transform: translateX(-5px);}
+    100% {transform: translateX(0);}
+}
+
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    width: 280px;
+    height: 350px;
+    background: white;
+    color: black;
+    border-radius: 20px;
+    overflow: hidden;            
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.card img {
+    width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, #1a73e8, #4285f4);  /* Plavi gradijent */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;    
+}
+.card p{
+    padding:20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+.social-icons{
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin: 40px;
+        }
+
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            color: #fff;
+            border-radius: 50px;          
+            text-decoration: none;          
+            transition: all 0.5s ease-out;
+        }
+
+       
+        .social-icons a.facebook { background: #286ec9; }
+        .social-icons a.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .social-icons a.twitter { background: #000000; }
+
+        .social-icons a:hover {
+            transform: rotate(360deg) scale(1.1);
+            border-radius: 50%;          
+        }
+
+
+
+.loader {
+    margin: auto;
+    border: 10px solid #fff;
+    border-top: 10px solid #422528;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<section>
+    <div class="typing-container">
+    <h1 class="typing">Bookapp</h1>
+    </div>
+    <p>Aplikacija za čitanje knjiga</p>
+
+    <div class="buttons">
+        <button class="btn btn-download">Preuzmi</button>
+        <button class="btn btn-trailer">Pogledaj trailer</button>
+    </div>
+</section>
+
+<section>
+<div class="cards">
+    <div class="card">
+        <img src="knjiga1.webp" alt="">
+        <p>Besplatne knjige za čitanje na mobitelu ili računalu.</p>
+    </div>
+
+    <div class="card">
+        <img src="knjiga2.webp" alt="">
+        <p>Dijeljenje mišljenja s drugim ljudima o knjigama.</p>
+    </div>
+
+    <div class="card">
+        <img src="knjiga3.jpg" alt="">
+        <p>Preporuka knjiga za osobu</p>
+    </div>
+</div>
+        <div class="social-icons">
+       <a href="#" class="facebook">f</a>
+        <a href="#" class="instagram">&#128247;</a>   
+        <a href="#" class="twitter">&#120143;</a>   
+    </div>
+     <b><p>Prati nas</p></b>
+</section>
+
+<section>
+    <h2>Učitavanje aplikacije...</h2>
+    <div class="loader"></div>
+</section>
+
+
+    
+</body>
+</html>
