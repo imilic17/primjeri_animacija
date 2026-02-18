@@ -26,14 +26,27 @@ h1 {
             background: linear-gradient(180deg, #0b0352, #534bc0);  /* Svijetlo žuta */
         }
         section {
-            min-height: 100vh;             /* Svaka sekcija je minimalno puna visina ekrana */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;            /* Za apsolutno pozicionirane child elemente */
-            overflow: hidden;              /* Skriva elemente koji izlaze izvan sekcije */
-        }
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 30px;              
+    position: relative;
+    overflow: hidden;
+}
 
+
+.button-group {
+    display: flex;
+    flex-direction: row;    /* Gumbi idu vodoravno */
+    gap: 20px;              /* Razmak između dva gumba */
+    z-index: 10;            /* Da budu iznad zvijezda */
+}
+
+.btn-play, .btn-epic {
+    margin: 0 !important; 
+}
         .stars-bg .star {
             position: absolute;
             width: 8px;
@@ -305,6 +318,133 @@ h1 {
         }
 
 
+
+
+
+
+
+
+        .card {
+            width: 280px;
+            height: 100px;
+            background: rgb(181, 162, 202);
+            border-radius: 20px;
+            overflow: hidden;              /* Skriva sve što izlazi izvan kartice */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+            /* TRANSITION - Ključno za glatke hover efekte!
+               all = primjenjuje se na SVA svojstva koja se promijene
+               0.4s = trajanje prijelaza
+               ease = počinje sporo, ubrza, pa uspori na kraju */
+            transition: all 0.4s ease;
+            cursor: pointer;
+        
+        }
+
+        /* HOVER STATE - Što se događa kad miš prijeđe preko */
+        .card:hover {
+            /* translateY(-20px) pomiče karticu 20px GORE (negativno = gore)
+               Stvara iluziju da se kartica "podigla" */
+            transform: translateY(-20px);
+
+            /* box-shadow dodaje sjenu koja pojačava 3D efekt
+               0 30px 60px = bez horizontalnog pomaka, 30px vertikalno, 60px blur
+               Veća sjena = kartica izgleda kao da je više podignuta */
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, #1a73e8, #4285f4);  /* Plavi gradijent */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;               /* Veliki emoji */
+        }
+
+        .card-content {
+            padding: 20px;
+            color: #000;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px 0;
+            color: #e4e01e;
+        }
+
+        .card-content p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;              /* Razmak između redaka teksta */
+        }
+        .card-group {
+    display: flex;      
+    flex-direction: row; 
+    justify-content: center; 
+    gap: 30px;          
+    z-index: 10;        
+    flex-wrap: wrap;    
+    padding: 20px;
+}
+
+
+    
+      
+        .social-icons-v1 {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons-v1 a {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+            background: #64748b;           /* Svijetlo siva pozadina kao baza */
+            border-radius: 50%;            /* Krug */
+            position: relative;            /* Za ::before pseudo-element */
+            overflow: hidden;              /* KLJUČNO! Skriva ::before kad izlazi izvan kruga */
+            text-decoration: none;         /* Uklanja podvlačenje linka */
+            transition: color 0.3s ease;
+            z-index: 1;                    /* Tekst iznad ::before */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* ::before stvara "ispunu" koja raste od dna */
+        .social-icons-v1 a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;                     /* Počinje na dnu */
+            left: 0;
+            width: 100%;
+            height: 0;                     /* Počinje s visinom 0 - nevidljivo */
+            transition: height 0.3s ease;  /* Glatko povećanje visine */
+            z-index: -1;                   /* Iza teksta/ikone */
+            border-radius: 50%;
+        }
+
+        /* Na hover, ::before naraste na punu visinu */
+        .social-icons-v1 a:hover::before {
+            height: 100%;
+        }
+
+        /* Svaka mreža ima svoju boju za ::before */
+        .social-icons-v1 a.facebook::before { background: #1877f2; }
+        .social-icons-v1 a.instagram::before { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .social-icons-v1 a.twitter::before { background: #1da1f2; }
+        .social-icons-v1 a.youtube::before { background: #ff0000; }
+        .social-icons-v1 a.tiktok::before { background: #000; }
+
+        /* Dodatni hover efekt - ikona se podigne */
+        .social-icons-v1 a:hover {
+            transform: translateY(-5px);   /* Podigne se za 5px */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);  /* Sjena za dubinu */
+        }
+
     </style>
 </head>
 <body>
@@ -336,12 +476,49 @@ h1 {
         <h1>Mafia</h1>
         <button type="button" class="btn-play">preuzmi igricu </button>
         <button type="button" class="btn-epic">pogledaj trailer </button>
+
+
+        <div class="card-group">
+            <div class="card">
+       
+                <div class="card-content">
+                    <h3>Više igrača</h3>
+                    <p>Možete igrati sa više igrača odjednom</p>
+                </div>
+            </div>
+        
+            <div class="card">
+            
+                <div class="card-content">
+                    <h3>Besplatno!</h3>
+                    <p>Igru nemorate plaćati</p>
+                </div>
+            </div>
+        
+            <div class="card">
+                
+                <div class="card-content">
+                    <h3>Zabavno</h3>
+                    <p>Igra je jako zabavna</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-icons-v1">
+            <!-- Klasa određuje koja boja će se koristiti -->
+            <a href="#" class="facebook">f</a>
+            <a href="#" class="instagram">&#128247;</a>   <!-- 📷 kamera za Instagram -->
+            <a href="#" class="twitter">&#120143;</a>      <!-- 𝕏 X logo -->
+            <a href="#" class="youtube">&#9658;</a>        <!-- ▶ play ikona za YouTube -->
+            <a href="#" class="tiktok">&#9835;</a>         <!-- ♫ nota za TikTok -->
+        </div>
+
     </section>
             </style>
 </head>
 
 <body>
-    
+   
    
 
 </body>
