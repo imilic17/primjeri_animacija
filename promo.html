@@ -13,7 +13,6 @@
         }
 
         .container {
-            height: 200px;
             position: relative;
         }
 
@@ -37,12 +36,10 @@
             z-index: 10;
             padding: 20px 40px;
             border-radius: 15px;
-            position: absolute;
-            margin-bottom: 30%;
         }
 
         p{
-            margin-bottom: 10%;
+            margin-bottom: 5%;
         }
         .gradient-bg {
             background: linear-gradient(-45deg, #aaffdb, #ffbfe3, #c88dff, #94ffa2);
@@ -58,7 +55,6 @@
             padding: 20px 60px;
             font-size: 1.5rem;
             border-radius: 50px;
-            margin-bottom: 30%;
             font-weight: bold;
             text-transform: uppercase;
             color: white;
@@ -87,6 +83,7 @@
 
         .btn-help {
             padding: 20px 60px;
+            margin-left: 25px;
             font-size: 1.5rem;
             border-radius: 50px;
             font-weight: bold;
@@ -114,6 +111,68 @@
             transform: scale(1.1);
             transition: transform 0.3s ease;
         }
+        .buttons {
+            width: 960px;
+            margin-left: 500px;
+        }
+        .card-overlay {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;            /* VAŽNO za apsolutno pozicionirani content */
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .card-overlay-bg {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #b616d6, #9519ad);  /* Zeleni gradijent */
+            transition: transform 0.5s ease;  /* Glatki zoom */
+        }
+        .card-overlay:hover .card-overlay-bg {
+            transform: scale(1.1);         /* Povećaj za 10% - "zoom in" efekt */
+        }
+        .card-overlay-content {
+            position: absolute;            /* Pozicioniramo preko pozadine */
+            bottom: 0;                     /* Na dnu kartice */
+            left: 0;
+            right: 0;
+            padding: 30px 20px;
+
+            /* Gradijent od prozirnog do tamnog - stvara "fade" efekt */
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+
+            /* Početna pozicija - 60px ispod (izvan kartice, skriveno) */
+            transform: translateY(60px);
+            transition: transform 0.4s ease;
+        }
+        .card-overlay:hover .card-overlay-content {
+            transform: translateY(0);      /* Vraća se na vidljivu poziciju */
+        }
+
+        .card-overlay-content h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .card-overlay-content p {
+            opacity: 0;                    /* Tekst je nevidljiv na početku */
+
+            /* transition s DELAY-om!
+               0.4s = trajanje
+               ease = timing funkcija
+               0.1s = DELAY - čeka 0.1s prije nego počne
+               To znači da se tekst pojavi NAKON što content dođe na poziciju */
+            transition: opacity 0.4s ease 0.1s;
+        }
+
+        .card-overlay:hover .card-overlay-content p {
+            opacity: 1;                    /* Tekst postaje vidljiv */
+        }
+        .vodoravne-kartice{
+            text-align: center;
+        }
 
     </style>
 </head>
@@ -122,11 +181,33 @@
     <section class="gradient-bg">
         <h1>Run Away</h1>
         <p>bježi od gume automobila koja te lovi!</p>
-        
-        <div class="button-wrapper">
-            <button class="btn-play">PLAY NOW</button>
-            <button class="btn-help">HELP</button>
+    <div class = "buttons">
+        <button class="btn-play">PLAY NOW</button>
+        <button class="btn-help">HELP</button>
+    </div>
+<div class="vodoravne-kartice">
+    <div class="card-overlay">
+        <div class="card-overlay-bg"></div>
+        <div class="card-overlay-content">
+            <h3>Razni izlgedi</h3>
+            <p>Razni izgledi likova koji vam omogoćuju proširiti kreativnost izlgeda</p>
         </div>
+        </div>
+    <div class="card-overlay">
+        <div class="card-overlay-bg"></div>
+        <div class="card-overlay-content">
+            <h3>Razni izlgedi</h3>
+            <p>Razni izgledi likova koji vam omogoćuju proširiti kreativnost izlgeda</p>
+        </div>
+        </div>
+    <div class="card-overlay">
+        <div class="card-overlay-bg"></div>
+        <div class="card-overlay-content">
+            <h3>Razni izlgedi</h3>
+            <p>Razni izgledi likova koji vam omogoćuju proširiti kreativnost izlgeda</p>
+        </div>
+        </div>
+    </div>
     </section>
     </div>
     </body>
