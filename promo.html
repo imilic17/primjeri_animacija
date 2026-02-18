@@ -131,41 +131,282 @@
             font-size: 0.9rem;
             line-height: 1.5;              /* Razmak između redaka teksta */
         }
+        
+        /*SOCIJALNE IKONE*/
+        .social-icons-v3 {
+            display: flex;
+            gap: 20px;
+            margin: 20px;
+        
+        }
 
+        .social-icons-v3 a {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+            background: #64748b;
+            border-radius: 50%;
+            text-decoration: none;
+            position: relative;            /* Za ::after tooltip */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            
+        }
+        .social-icons-v3 a::after {
+            /* ATTR() funkcija čita vrijednost HTML atributa!
+               data-name="Facebook" u HTML-u -> content prikazuje "Facebook" */
+            content: attr(data-name);
+
+            position: absolute;
+            bottom: -40px;                 /* Ispod ikone */
+            background: #fff;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+
+            opacity: 0;                    /* Nevidljivo na početku */
+            transform: translateY(-10px);  /* Malo gore od krajnje pozicije */
+            transition: all 0.3s ease;
+            white-space: nowrap;           /* Sprječava prelom teksta */
+        }
+
+        /* Na hover tooltip postaje vidljiv i pada na mjesto */
+        .social-icons-v3 a:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .social-icons-v3 a:hover {
+            transform: translateY(-10px);
+        }
+        .social-icons-v3 a.facebook:hover { background: #1877f2; box-shadow: 0 10px 30px #1877f2; }
+        .social-icons-v3 a.instagram:hover { background: linear-gradient(45deg, #f09433, #dc2743); box-shadow: 0 10px 30px #dc2743; }
+        .social-icons-v3 a.twitter:hover { background: #1da1f2; box-shadow: 0 10px 30px #1da1f2; }
+        .social-icons-v3 a.github:hover { background: #333; box-shadow: 0 10px 30px #666; }
+        .social-icons-v3 a.linkedin:hover { background: #0077b5; box-shadow: 0 10px 30px #0077b5; }
+    
+        .opis{
+            text-align: center;
+        }
+        /*progres*/
+        .progress-bar {
+            width: 200px;
+            height: 6px;
+            background: #e0e0e0;           /* Svijetla pozadina "praznog" dijela */
+            border-radius: 3px;
+            overflow: hidden;              /* VAŽNO! Skriva dio koji izlazi van */
+        }
+
+        /* ::after stvara "klizač" koji se pomiče */
+        .progress-bar::after {
+            content: '';                   /* Obavezno za pseudo-element */
+            display: block;
+            width: 40%;                    /* Klizač je 40% širine roditelja */
+            height: 100%;
+            background: linear-gradient(90deg, #7c3aed, #a855f7);  /* Ljubičasti gradijent */
+            border-radius: 3px;
+            animation: progress 1.5s ease-in-out infinite;
+        }
+        .loader-container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .loader-container p {
+            color: #555;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        @keyframes progress {
+            0% { transform: translateX(-100%); }   /* Počinje potpuno lijevo (izvan vidljivog) */
+            100% { transform: translateX(350%); }  /* Završava desno (izvan vidljivog) */
+            /*
+               Klizač "ulazi" s lijeve strane, prolazi kroz traku,
+               i "izlazi" na desnoj strani. overflow: hidden na roditelju
+               skriva dijelove izvan granica.
+            */
+        }
+
+        h1 {
+            color: #333;                   /* Tamni tekst */
+            margin-bottom: 20px;
+        }
+        .btn-play {
+            padding: 20px 60px;            /* Unutarnji razmak: 20px gore/dolje, 60px lijevo/desno */
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;     /* Pretvara tekst u VELIKA SLOVA */
+            color: white;
+            background: linear-gradient(45deg, #1a73e8, #4285f4);  /* Plavi gradijent */
+            border: none;                  /* Uklanja default obrub gumba */
+            border-radius: 50px;           /* Zaobljeni uglovi - 50px stvara "pilulu" oblik */
+            cursor: pointer;               /* Pokazivač miša postaje "ruka" */
+            position: relative;            /* Potrebno za apsolutno pozicionirane child elemente */
+            overflow: hidden;              /* Skriva sve što izlazi izvan granica gumba */
+
+            /* GLAVNA ANIMACIJA - pulse efekt */
+            animation: pulse 2s infinite;
+            /* pulse = ime animacije
+               2s = trajanje
+               infinite = beskonačno ponavljanje */
+        }
+        @keyframes pulse {
+            0% {
+                /* box-shadow: h-offset v-offset blur spread color
+                   spread = koliko se sjena širi izvan elementa
+                   Počinjemo s 0 spread i 70% prozirnom bojom */
+                box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.7);
+            }
+            70% {
+                /* Sjena se proširila na 20px, ali je potpuno prozirna (0 na kraju)
+                   Stvara efekt "prstena" koji se širi */
+                box-shadow: 0 0 0 20px rgba(26, 115, 232, 0);
+            }
+            100% {
+                /* Vraćamo na početak za glatki prijelaz */
+                box-shadow: 0 0 0 0 rgba(26, 115, 232, 0);
+            }
+        }
+  
+
+        .btn-epic {
+            padding: 20px 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;                   /* Tamni tekst na svijetloj pozadini */
+            background: white;             /* Bijela pozadina gumba */
+            border: 4px solid transparent; /* Prozirni obrub - duga će biti iza njega */
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;            /* VAŽNO! Omogućuje ::before i ::after pozicioniranje */
+            z-index: 1;                    /* Gumb je iznad pseudo-elemenata */
+        }
+
+        /* ============================================
+           ::BEFORE PSEUDO-ELEMENT - DUGA POZADINA
+           Stvara rainbow gradient IZA gumba
+           ============================================ */
+        .btn-epic::before {
+            content: '';                   /* OBAVEZNO za pseudo-element - može biti prazan */
+            position: absolute;            /* Apsolutno pozicioniranje unutar roditelja */
+
+            /* Pozicioniramo 4px izvan gumba sa svih strana
+               (to je debljina "obruba" duge) */
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+
+            /* RAINBOW GRADIENT - 9 boja koje se ponavljaju */
+            background: linear-gradient(45deg,
+                #ff0000,    /* Crvena */
+                #ff7300,    /* Narančasta */
+                #fffb00,    /* Žuta */
+                #48ff00,    /* Zelena */
+                #00ffd5,    /* Tirkizna */
+                #002bff,    /* Plava */
+                #7a00ff,    /* Ljubičasta */
+                #ff00c8,    /* Magenta */
+                #ff0000     /* Opet crvena - za glatki prijelaz */
+            );
+
+            /* background-size: 400% čini gradient 4x širi od elementa
+               To nam omogućuje da "pomičemo" gradient kroz element */
+            background-size: 400%;
+
+            border-radius: 12px;           /* Malo veći radius jer je element veći */
+            z-index: -1;                   /* IZA gumba ali iznad ::after */
+
+            animation: rainbow 20s linear infinite;
+            /* linear = konstantna brzina (bez ubrzanja/usporenja)
+               20s = sporo, za glatki efekt */
+        }
+
+        /* ============================================
+           ::AFTER PSEUDO-ELEMENT - POZADINA GUMBA
+           Prekriva sredinu duge, ostavljajući samo "obrub"
+           ============================================ */
+        .btn-epic::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;             /* Bijela - prekriva sredinu duge */
+            border-radius: 6px;
+            z-index: -1;                   /* Između gumba i ::before (duge) */
+        }
 
     
 </style>
 <body>
     <section class="gradient-bg">
         <div class="glitch-container">
-            <div class="glitch">SAH</div>
+            <div class="glitch">ŠAH</div>
+        </div><br>
+   <div class="opis">
+        <div class="card-img">&#9819;</div> 
+        <div class="card-content">
+            <h3>IGRA KREĆE</h3>
+            <p>Zaigraj ovu igru i budi bolji!!!</p>
         </div>
+    </div>
    
+    <h1>Preuzmi</h1>
+    <button class="btn-play">preuzmi sada</button><br><br>
+    
+    <h1>ZAIGRAJ</h1>
+    <button class="btn-epic">Zaigraj sada</button><br><br>
+
+
 <div class="vodoravne_kartice">
     <div class="card">
-        <div class="card-img">&#127918;</div>  <!-- 🎮 Gaming emoji -->
+        <div class="card-img">&#9814;</div>  <!-- 🎮 Gaming emoji -->
         <div class="card-content">
-            <h3>Gaming Zone</h3>
+            <h3>Šah</h3>
             <p>Prijeđi mišem preko kartice da vidiš lift efekt. Koristi se na većini modernih stranica.</p>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-img">&#127918;</div>  <!-- 🎮 Gaming emoji -->
+        <div class="card-img"> &#9813;</div>  <!-- 🎮 Gaming emoji -->
         <div class="card-content">
-            <h3>Gaming Zone</h3>
+            <h3>Šah mat</h3>
             <p>Prijeđi mišem preko kartice da vidiš lift efekt. Koristi se na većini modernih stranica.</p>
         </div>
     </div>
     
     <div class="card">
-        <div class="card-img">&#127918;</div>  <!-- 🎮 Gaming emoji -->
+        <div class="card-img">&#9812;</div>  <!-- 🎮 Gaming emoji -->
         <div class="card-content">
-            <h3>Gaming Zone</h3>
+            <h3>Mat Šah</h3>
             <p>Prijeđi mišem preko kartice da vidiš lift efekt. Koristi se na većini modernih stranica.</p>
         </div>
     </div> 
-</div>
+</div><br>
+<h2>Pronađi nas</h2>
+<div class="social-icons-v3">
+    <a href="#" class="facebook" data-name="Facebook">f</a>
+    <a href="#" class="instagram" data-name="Instagram">&#128247;</a>  <!-- 📷 -->
+    <a href="#" class="twitter" data-name="Twitter/X">&#120143;</a>     <!-- 𝕏 -->
+    <a href="#" class="github" data-name="GitHub">&#128025;</a>         <!-- 🐙 hobotnica za GitHub -->
+    <a href="#" class="linkedin" data-name="LinkedIn">in</a>
+</div><br>
+
+<div class="loader-container">
+    <div class="progress-bar"></div>
+    <p>UČITAVAM ŠAH IGRU</p>
+</div><br>
+
 </section>
 </body>
 </html>
