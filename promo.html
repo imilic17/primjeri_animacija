@@ -23,6 +23,7 @@ h1 {
             padding: 20px 40px;
             border-radius: 15px;
             margin-bottom: 40%;
+            flex-direction: column;
         }
         .stars-bg {
             background: linear-gradient(180deg, #056bdf, #000000);  /* Svijetlo žuta */
@@ -33,7 +34,8 @@ h1 {
             justify-content: center;
             align-items: center;
             position: relative;            /* Za apsolutno pozicionirane child elemente */
-            overflow: hidden;              /* Skriva elemente koji izlaze izvan sekcije */
+            overflow: hidden;             /* Skriva elemente koji izlaze izvan sekcije */
+            flex-direction: column;
         }
 
         .stars-bg .star {
@@ -95,7 +97,7 @@ h1 {
             height: 3px;
 
             /* Gradijent od narančaste do prozirne - "rep" padalice */
-            background: linear-gradient(90deg, #f59e0b, transparent);
+            background: linear-gradient(90deg, #c3e4f7, transparent);
 
             top: 20%;
             left: -100px;                  /* Počinje izvan ekrana, lijevo */
@@ -180,7 +182,24 @@ h1 {
             border-radius: 10px;
             cursor: pointer;
             position: relative;            /* VAŽNO! Omogućuje ::before i ::after pozicioniranje */
-            z-index: 1;                    /* Gumb je iznad pseudo-elemenata */
+            z-index: 1;                 /* Gumb je iznad pseudo-elemenata */
+            display: inline-block;
+            
+          
+            
+        }
+        .btn-epic:hover{
+            transform: translateY(5px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2); 
+            overflow: hidden;              /* Skriva sve što izlazi izvan kartice */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+            /* TRANSITION - Ključno za glatke hover efekte!
+               all = primjenjuje se na SVA svojstva koja se promijene
+               0.4s = trajanje prijelaza
+               ease = počinje sporo, ubrza, pa uspori na kraju */
+            transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         /* ============================================
@@ -190,7 +209,7 @@ h1 {
         .btn-epic::before {
             content: '';                   /* OBAVEZNO za pseudo-element - može biti prazan */
             position: absolute;            /* Apsolutno pozicioniranje unutar roditelja */
-
+            display: inline-block;
             /* Pozicioniramo 4px izvan gumba sa svih strana
                (to je debljina "obruba" duge) */
             top: -4px;
@@ -237,7 +256,10 @@ h1 {
             background: white;             /* Bijela - prekriva sredinu duge */
             border-radius: 6px;
             z-index: -1;                   /* Između gumba i ::before (duge) */
+            display: inline-block;
         }
+
+                                        
 
         /* ============================================
            @KEYFRAMES RAINBOW - Pomiče gradient poziciju
@@ -251,17 +273,70 @@ h1 {
 
         h1 {
             color: #333;                   /* Tamni tekst */
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            display: inline-block;
+            width: 280px;
+            height: 100px;
+            background: rgb(199, 58, 58);
+            border-radius: 20px;
+            overflow: hidden;              /* Skriva sve što izlazi izvan kartice */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+            /* TRANSITION - Ključno za glatke hover efekte!
+               all = primjenjuje se na SVA svojstva koja se promijene
+               0.4s = trajanje prijelaza
+               ease = počinje sporo, ubrza, pa uspori na kraju */
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        /* HOVER STATE - Što se događa kad miš prijeđe preko */
+        .card:hover {
+            /* translateY(-20px) pomiče karticu 20px GORE (negativno = gore)
+               Stvara iluziju da se kartica "podigla" */
+            transform: translateY(-20px);
+
+            /* box-shadow dodaje sjenu koja pojačava 3D efekt
+               0 30px 60px = bez horizontalnog pomaka, 30px vertikalno, 60px blur
+               Veća sjena = kartica izgleda kao da je više podignuta */
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, #1a73e8, #4285f4);  /* Plavi gradijent */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;               /* Veliki emoji */
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .vodoravne_kartice{
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <!-- Sekcija 3: Zvjezdano nebo (zlatne zvijezde) -->
     <section class="stars-bg">
+        <h1>Sketchy Flying</h1>
+        <div class="shooting-star">
+    </div>
+    
+
         <!-- 20 zvijezda - svaka ima jedinstvenu poziciju i delay -->
         <div class="star"></div>
         <div class="star"></div>
         <div class="star"></div>
+        <div class="star"></div>    
         <div class="star"></div>
         <div class="star"></div>
         <div class="star"></div>
@@ -278,13 +353,42 @@ h1 {
         <div class="star"></div>
         <div class="star"></div>
         <div class="star"></div>
-        <div class="star"></div>
+   
         <!-- Shooting star -->
-        <div class="shooting-star"></div>
-        <h1>Sketchy Flying</h1>
-        <button type="button" class="btn-play">Preuzmi</button>
+   
+    
+        <div class="slogan">
+            <p style="background-color:Tomato;">Sketchy Flying. Brod ti gori nakon sudara sa asteroidom, kontroliraj svoj nestabilni svemirski brod do najbližeg planeta!!</p>
+<br><br>
+        </div>
+        <button type="button" class="btn-epic">Preuzmi</button><br><br>
         <button type="button" class="btn-epic">Pogledaj Trailer</button>
-    </section>
+        <br><br>
+        <div class="vodoravne_kartice">
+        <div class="card">
+            
+            <div class="card-content">
+                <h3>Gaming Zone</h3>
+                <p>Prijeđi mišem preko kartice da vidiš lift efekt. Koristi se na većini modernih stranica.</p>
+            </div>
+        </div>
+        <div class="card">
+         
+            <div class="card-content">
+                <h3>Gaming Zone</h3>
+                <p>Prijeđi mišem preko kartice da vidiš lift efekt. Koristi se na većini modernih stranica.</p>
+            </div>
+        </div>
+        <div class="card">
+            
+            <div class="card-content">
+                <h3>Gaming Zone</h3>
+                <p>Prijeđi mišem preko kartice da vidiš lift efekt. Koristi se na većini modernih stranica.</p>
+            </div>
+        </div>
+    </div>
+        
+        </section>
 </style>
 </head>
 <body>
