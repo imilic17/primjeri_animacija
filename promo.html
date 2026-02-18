@@ -14,6 +14,7 @@
  section {
             min-height: 100vh;             /* Svaka sekcija je minimalno puna visina ekrana */
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;            /* Za apsolutno pozicionirane child elemente */
@@ -75,6 +76,7 @@
            Najjednostavniji hover efekt - kartica se "podigne"
            ============================================ */
         .card {
+            display: inline-block;
             width: 280px;
             height: 350px;
             background: white;
