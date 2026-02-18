@@ -15,7 +15,7 @@ body{
     height: 100vh;
     background: linear-gradient(
         to bottom left,
-        #011f2f
+        #052a3d
         #1251cb 25%
         #128587 50%,
         #15b294 75%,
@@ -26,8 +26,9 @@ body{
     color: white;
     font-weight: bold;
 }
+/*Background transition thing*/
 @keyframes gradientMove {
-    0% {background-color: #011f2f}
+    0% {background-color: #052a3d}
     10% {background-color: #1251cb}
     20% {background-color: #128587}
     30% {background-color: #15b294}
@@ -39,6 +40,7 @@ body{
     100%{background-color: #15c3b5;}
 }
 
+/*Typing effenct*/
 h1{
     overflow: hidden;
     border-right: .15em solid orange;
@@ -59,6 +61,8 @@ h1{
   from, to { border-color: transparent }
   50% { border-color: #fff; }
 }
+
+/*Block with the title*/
 .header{
    background-color: #011f2f; 
    margin-left: 33%;
@@ -67,6 +71,63 @@ h1{
    padding-top: 3.258897%;
    padding-bottom: 3.258897%;
    border-radius: 15px;
+}/*The opis*/
+.opis{
+    margin-top: 16.34566px;
+    margin-bottom: 16.34566px;
+    text-align: center;
+    font-size: 17px;
+}
+/*Edited buttons*/
+.containerBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#logIn{
+    border: 3px solid #ff9f43;
+    color: #ff9f43;
+    width: 9.331234%;
+    height: 30px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+    @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+#logIn:hover { 
+    animation: bounce 1s ease infinite; 
+}
+
+#signUp{
+    border: 3px white solid;
+    background-color: #ff9f43;
+    color: white;
+    width: 9.331234%;
+    height: 30px;
+    border-radius: 15px;
+}
+/*Edited features*/
+.containerFt{
+    margin-top: 20.1458897px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.feature{
+    padding: 200px 200px;
+    background-color: aliceblue;
+    color: black;
+    margin-left: 10px;
+}
+#ftr1{
+    width: 200px;
+    height: 200px;
+}
+#ftr2{
+    width: 200px;
+    height: 200px;
 }
 
     </style>
@@ -78,9 +139,22 @@ h1{
         VeloCity
     </h1>    
 </div>
-    <div>
-        <i></i>
+    <div class="opis">
+        <i>A great site to fassion your day</i>
     </div>
-    
+    <div class="containerBtn">
+    <button class="login" id="logIn">LOG IN</button>
+    <button class="login" id="signUp">SIGN UP</button>
+</div>
+<div class="containerFt">
+    <div class="feature" id="ftr1">
+        <img src="friendly-shop.jpg" alt="clothes">
+    </div>
+    <div class="feature" id="ftr2">
+        <img src="types-of-sunglasses-hero.webp" alt="Sunglasses">
+    </div>
+    <div class="feature" id="ftr3">
+    </div>
+</div>
 </body>
 </html>
