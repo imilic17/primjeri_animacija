@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        h1{
+        h2{
             text-align: center;
             font-family:Arial, Helvetica, sans-serif;
 
         }
     .pozadina{
-        animation: colorChange  2 ease;
-        background-color: aquamarine;
+        animation: colorChange  12s ease;
+        background-color: bisque;
     }
 
     @keyframes colorChange {
-    0%   { background-color: red; }
+    0%   { background-color: rgb(255, 255, 255); }
     25%  { background-color: orange; }
-    50%  { background-color: yellow; }
+    50%  { background-color: rgb(233, 233, 102); }
     75%  { background-color: white; }
     100% { background-color: rgb(235, 190, 108); }
 }
@@ -30,7 +30,7 @@
 .button {
     background: rgb( 165, 207, 235);
     transition: background 0.8s ease;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .button:hover {
@@ -42,7 +42,7 @@
 }
 #gumb { animation: bounce 2s ease-in ; 
 background: rgb(165, 207, 235);
-border-radius: 5px;}
+border-radius: 3px;}
 
     </style>
 </head>
@@ -50,6 +50,8 @@ border-radius: 5px;}
     <div class="pozadina">
     <div class="box">
     <h2>Kontra Napad-Globalna Ofanziva</h2>
+
+    <h4>GREEN!!!!</h4>
 
     <button class="button">PREUZMI</button>
     <button id="gumb">TRAILER</button>
