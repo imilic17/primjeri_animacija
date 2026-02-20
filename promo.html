@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{ min-height: 100vh;
+    background: linear-gradient(-45deg, #ff6b6b, #6b73ff, #1dd1a1, #feca57);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
+h1{text-align: center;}
+p{text-align: center;}
+h3{text-align: center;}
+
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.neon-text {
+            font-size: 5rem;             
+            color: #1a5fb4;              
+
+            
+            text-shadow:
+                0 0 10px #3584e4,          
+                0 0 20px #3584e4,          
+                0 0 40px #3584e4,          
+                0 0 80px #3584e4;          
+
+            
+            animation: flicker 1.5s infinite alternate;
+           
+        }
+
+      
+        @keyframes flicker {
+          
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                
+                text-shadow:
+                    0 0 10px #3584e4,
+                    0 0 20px #3584e4,
+                    0 0 40px #3584e4,
+                    0 0 80px #3584e4;
+            }
+            20%, 24%, 55% {
+            
+                text-shadow: none;
+            }
+        }
+
+       
+        .slogan {
+            color: #813d9c;               
+            text-shadow:
+                0 0 10px #c061cb,         
+                0 0 20px #c061cb,
+                0 0 40px #c061cb,
+                0 0 80px #c061cb;
+
+            animation: glow-pink 2s ease-in-out infinite alternate;
+           
+        }
+
+   
+        @keyframes glow-pink {
+            from {
+              
+                text-shadow:
+                    0 0 10px #c061cb,
+                    0 0 20px #c061cb,
+                    0 0 40px #c061cb;
+            }
+            to {
+               
+                text-shadow:
+                    0 0 20px #c061cb,
+                    0 0 40px #c061cb,
+                    0 0 80px #c061cb,
+                    0 0 120px #c061cb;
+            }
+        }
+
+       
+        .container {
+            text-align: center;           
+            background: white;
+            padding: 60px 80px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 2rem;          
+            margin-top: 20px;              
+        }
+
+  
+        @media (max-width: 768px) {
+            .neon-text {
+                font-size: 2.5rem;       
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            .container {
+                padding: 30px 20px;      
+                margin: 20px;
+            }
+        }
+
+     
+        @media (prefers-reduced-motion: reduce) {
+            .neon-text,
+            .neon-pink {
+                animation: none;          
+            }
+        }
+
+        @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+.btn-download{
+    background-color: #3584e4;
+}
+.btn-download:hover { animation: pulse 2s ease-in-out infinite; }
+.btn-trailer{
+    background-color: #3584e4;
+}
+.btn-trailer:hover { animation: pulse 2s ease-in-out infinite; }
+
+
+.features {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center;      
+  gap: 30px;                 
+}
+
+.card {
+  width: 320px;
+  padding: 40px 20px;
+  background-color: #1e2a3a;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+}
+
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border: 1px solid #38bdf8;
+}
+
+
+.card::before {
+    
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.card:hover::before {
+    opacity: 0.1;
+}
+
+
+.card h3, .card p {
+    position: relative;
+    z-index: 1;
+}
+
+
+.card h3 {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card:hover h3 {
+    transform: translateX(5px);
+    color: #38bdf8;
+}
+
+.gumbi{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+
+}
+.social {
+    margin: auto;
+    text-align: center;
+}
+.s1 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.s1:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.s2 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.s2:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.s3 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.s3:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.s4 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.s4:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+    </style>
+</head>
+<body>
+    <h1>SkyHigh</h1>
+    <p class="slogan">Manje riječi, više djela.</p>
+    <div class="loader">
+        <span></span><span></span><span></span>
+    </div>
+    <div class="gumbi">
+    <button class="btn-download">PREUZMI</button>
+    <button class="btn-trailer">TRAILER</button>
+</div >
+    <div class="features">
+        <div class="card">
+            <h3>Multiplayer</h3>
+            <p>Igraj protiv igrača iz cijelog svijeta u realnom vremenu.</p>
+        </div>
+    
+        <div class="card">
+            <h3>100+ Levela</h3>
+            <p>Izazovne misije i boss borbe koje testiraju tvoje vještine.</p>
+        </div>
+    
+        <div class="card">
+            <h3>Single player</h3>
+            <p>Samostalno se suoči s izazovima, pričom i okruženjem. </p>
+        </div>
+    </div>
+    
+   
+    <footer>
+        <div class="social">
+            <span class="s1">🐦</span>
+            <span class="s2">📷</span>
+            <span class="s3">🎮</span>
+            <span class="s4">🎵</span>
+        </div>
+    </footer>
+</body>
+</html>
