@@ -5,25 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        /*background color: Boja 	HEX Kod	Tipična upotreba
+Neon Pink	#F000FF	Underglow / Neon natpisi
+Cyan Blue	#4DEEEA	Svjetla garaže / Lokve
+Neon Green	#74EE15	Lakeshore Tags / Nitro
+Electric Purple	#CB0FFF	Akcenti na karoseriji*/
+        body{
             display: inline-block;
-            width: 250px;
-            text-align: center;
             font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            width: 300px;
+            background: linear-gradient(-45deg,#FF00FF,#4DEEEA,#74EE15,#CB0FFF,#00FFFF,#00CED1, );
+        }
+        button{
+            display: flexbox;
+            width: 120px;
+            background-color: white;
+            border: 1px solid black;
+            height: 40px;
+            border-radius: 7px;
+        }
+        .opis{
+            color: black;
+            font-size: 16px;
+        }
+        .icon{
+            letter-spacing: 20px;
+            font-size: 20px;
+        }
+        .icon:hover{
+            animation: bounce 0.5s ease;
         }
     </style>
 </head>
 <body>
-    <h4>animirana pozadina (gradient) prekriva cijelu stranicu</h4>
-    <h1>NAZIV IGRE / APLIKACIJE</h1>
-    <h4>neon / typing / glitch animacija</h4>
-    <p>kratki slogan ili opis</p>
+    <header>
+        <h1>Car game</h1>
+    </header>
+    <main>
+        <p class="opis">U ovoj igrici krećeš kao ulični vozač koji kroz ilegalne utrke i opasne driftove zarađuje novac za tuning i nove aute. Sve se vrti oko adrenalinskih potjera s policijom, bjesomučne vožnje s nitrom kroz gradski promet i nadogradnje tvoje pile kako bi od običnog auta napravio najbržu zvijer u gradu i postao legenda asfalta.</p>
     <button>PREUZMI</button>
     <button>TRAILER</button>
-    <h4>animirani gumbi s razlicitim hover efektima</h4>
-    <!--feature-->
-    <!--icon-->
-    <h4>social ikone s hover animacijom</h4>
+    <!--feature min: 1 max:3
+    1.Modifikacije auta
+    2.Policijske potjere
+    3.LIjepoi grad s dinamičnim prometom
+    -->
+
+    </main>    
+    <footer>
+        <p class="icon">&#x1F310;&#x1F4F7;&#x1F3AE;&#x1F3B5;</p>
+    </footer>
+    
     
 
 </body>
