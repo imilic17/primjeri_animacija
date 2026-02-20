@@ -1,0 +1,19 @@
+button {
+    margin: 200px;
+    background-color: white;
+}
+
+button:hover {
+    background-color: aqua;
+}
+
+@keyframes bounce {
+    0%    {transform: translateY(0);  background: red;}
+    25%     {transform: translateX(-10px); background: yellow;}
+    50%     {transform: translateY(-100px);background: green; }
+    75%     {transform: translateX(40px); background: red;}
+    
+}
+
+button {animation: bounce 4s ease infinite;}
+
