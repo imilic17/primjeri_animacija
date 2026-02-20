@@ -4,8 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            font-family:Arial, Helvetica, sans-serif;
+
+        }
+    .pozadina{
+        animation: colorChange  2 ease;
+        background-color: aquamarine;
+    }
+
+    @keyframes colorChange {
+    0%   { background-color: red; }
+    25%  { background-color: orange; }
+    50%  { background-color: yellow; }
+    75%  { background-color: white; }
+    100% { background-color: rgb(235, 190, 108); }
+}
+.box{
+    display: inline-block;
+    width: 250px;
+    height: 400px;
+}
+.button {
+    background: rgb( 165, 207, 235);
+    transition: background 0.8s ease;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background: rgb(173, 243, 167);
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+#gumb { animation: bounce 2s ease-in ; 
+background: rgb(165, 207, 235);
+border-radius: 5px;}
+
+    </style>
 </head>
 <body>
+    <div class="pozadina">
+    <div class="box">
+    <h2>Kontra Napad-Globalna Ofanziva</h2>
+
+    <button class="button">PREUZMI</button>
+    <button id="gumb">TRAILER</button>
+
+
+
+    </div>
+</div>
     
 </body>
 </html>
