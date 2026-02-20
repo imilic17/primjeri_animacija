@@ -13,26 +13,29 @@
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: #1a1a2e;
-            color: #fff;
+            background: #f5f7fa;
+            color: #1e293b;
             line-height: 1.6;
         }
 
         /* HEADER */
         header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1a73e8, #1557b0);
             padding: 40px;
             text-align: center;
+            color: white;
         }
 
         header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            color: white;
         }
 
         header p {
             opacity: 0.9;
             font-size: 1.1rem;
+            color: white;
         }
 
         /* MAIN CONTAINER */
@@ -44,15 +47,16 @@
 
         /* SEKCIJE */
         .section {
-            background: #16213e;
+            background: white;
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
-            border-left: 5px solid #667eea;
+            border-left: 5px solid #1a73e8;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
         .section h2 {
-            color: #667eea;
+            color: #1a73e8;
             font-size: 1.8rem;
             margin-bottom: 20px;
             display: flex;
@@ -61,16 +65,16 @@
         }
 
         .section h3 {
-            color: #0ff;
+            color: #d93025;
             font-size: 1.2rem;
             margin: 25px 0 15px 0;
             padding-bottom: 5px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         /* CODE BLOKOVI */
         .code-block {
-            background: #0a0a0a;
+            background: #1e293b;
             border-radius: 10px;
             padding: 20px;
             margin: 15px 0;
@@ -83,7 +87,7 @@
             position: absolute;
             top: 10px;
             right: 15px;
-            background: #667eea;
+            background: #1a73e8;
             color: white;
             padding: 2px 10px;
             border-radius: 5px;
@@ -93,24 +97,24 @@
         .code-block code {
             font-family: 'Courier New', monospace;
             font-size: 0.95rem;
-            color: #0f0;
+            color: #a5f3a6;
             white-space: pre;
         }
 
         .code-block .comment {
-            color: #666;
+            color: #94a3b8;
         }
 
         .code-block .property {
-            color: #0ff;
+            color: #7dd3fc;
         }
 
         .code-block .value {
-            color: #f0f;
+            color: #f9a8d4;
         }
 
         .code-block .selector {
-            color: #feca57;
+            color: #fde047;
         }
 
         /* TABLICE */
@@ -123,25 +127,25 @@
         th, td {
             padding: 12px 15px;
             text-align: left;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         th {
-            background: #0a0a0a;
-            color: #667eea;
+            background: #f1f5f9;
+            color: #1a73e8;
             font-weight: bold;
         }
 
         tr:hover {
-            background: rgba(102, 126, 234, 0.1);
+            background: rgba(26, 115, 232, 0.05);
         }
 
         td code {
-            background: #0a0a0a;
+            background: #1e293b;
             padding: 3px 8px;
             border-radius: 4px;
             font-family: 'Courier New', monospace;
-            color: #0f0;
+            color: #a5f3a6;
             font-size: 0.9rem;
         }
 
@@ -154,32 +158,33 @@
         }
 
         .demo-box {
-            background: #0a0a0a;
+            background: #f1f5f9;
             border-radius: 10px;
             padding: 20px;
             text-align: center;
             min-width: 150px;
             flex: 1;
+            border: 1px solid #e2e8f0;
         }
 
         .demo-box p {
             margin-top: 15px;
             font-size: 0.85rem;
-            color: #888;
+            color: #64748b;
         }
 
         .demo-box code {
             display: block;
             margin-top: 10px;
             font-size: 0.75rem;
-            color: #0ff;
+            color: #1a73e8;
         }
 
         /* ANIMIRANI PRIMJERI */
         .box {
             width: 60px;
             height: 60px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #1a73e8, #1557b0);
             border-radius: 10px;
             margin: 0 auto;
         }
@@ -205,27 +210,27 @@
 
         /* TIPS */
         .tip {
-            background: rgba(39, 202, 64, 0.1);
-            border-left: 4px solid #27ca40;
+            background: #dcfce7;
+            border-left: 4px solid #16a34a;
             padding: 15px 20px;
             margin: 20px 0;
             border-radius: 0 10px 10px 0;
         }
 
         .tip strong {
-            color: #27ca40;
+            color: #16a34a;
         }
 
         .warning {
-            background: rgba(255, 65, 108, 0.1);
-            border-left: 4px solid #ff416c;
+            background: #fee2e2;
+            border-left: 4px solid #dc2626;
             padding: 15px 20px;
             margin: 20px 0;
             border-radius: 0 10px 10px 0;
         }
 
         .warning strong {
-            color: #ff416c;
+            color: #dc2626;
         }
 
         /* PRINT STYLES */
@@ -236,7 +241,7 @@
             }
             .section {
                 background: #f5f5f5;
-                border-color: #667eea;
+                border-color: #1a73e8;
             }
             .code-block {
                 background: #f0f0f0;
@@ -245,7 +250,7 @@
                 color: #333;
             }
             header {
-                background: #667eea;
+                background: #1a73e8;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -253,7 +258,7 @@
 
         /* NAV */
         .nav {
-            background: #0a0a0a;
+            background: white;
             padding: 15px 40px;
             position: sticky;
             top: 0;
@@ -262,10 +267,11 @@
             gap: 20px;
             flex-wrap: wrap;
             justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
         .nav a {
-            color: #888;
+            color: #64748b;
             text-decoration: none;
             padding: 5px 15px;
             border-radius: 20px;
@@ -274,7 +280,7 @@
         }
 
         .nav a:hover {
-            background: #667eea;
+            background: #1a73e8;
             color: white;
         }
 
@@ -287,30 +293,103 @@
         }
 
         .visual-item {
-            background: #0a0a0a;
+            background: #f1f5f9;
             padding: 15px;
             border-radius: 10px;
             text-align: center;
+            border: 1px solid #e2e8f0;
         }
 
         .visual-item .preview {
             width: 50px;
             height: 50px;
-            background: #667eea;
+            background: #1a73e8;
             margin: 0 auto 10px;
             border-radius: 5px;
         }
 
         .visual-item code {
             font-size: 0.7rem;
-            color: #0ff;
+            color: #1a73e8;
         }
 
-        /* Transform demos */
-        .rotate { transform: rotate(45deg); }
-        .scale { transform: scale(0.7); }
-        .skew { transform: skewX(20deg); }
-        .translate { transform: translateX(10px); }
+        /* Transform demos - ANIMIRANI */
+        .rotate {
+            animation: demoRotate 3s linear infinite;
+        }
+        .scale {
+            animation: demoScale 2s ease-in-out infinite;
+        }
+        .skew {
+            animation: demoSkew 2s ease-in-out infinite alternate;
+        }
+        .translate {
+            animation: demoTranslate 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes demoRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes demoScale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(0.6); }
+        }
+
+        @keyframes demoSkew {
+            from { transform: skewX(-20deg); }
+            to { transform: skewX(20deg); }
+        }
+
+        /* translateX = horizontalni pomak (lijevo-desno) */
+        @keyframes demoTranslate {
+            from { transform: translateX(-10px); }
+            to { transform: translateX(10px); }
+        }
+
+        /* ============================================
+           RESPONZIVNI DIZAJN
+           ============================================ */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .container {
+                padding: 20px 15px;
+            }
+            .section {
+                padding: 20px;
+            }
+            .section h2 {
+                font-size: 1.4rem;
+            }
+            .nav {
+                padding: 10px 15px;
+                gap: 10px;
+            }
+            .nav a {
+                font-size: 0.8rem;
+                padding: 4px 10px;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .code-block {
+                padding: 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ============================================
+           PRISTUPAČNOST - Za korisnike osjetljive na pokret
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            .ease, .ease-in, .ease-out, .ease-in-out, .linear,
+            .rotate, .scale, .skew, .translate {
+                animation: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -909,7 +988,7 @@ margin, padding, font-size</code>
 
     </div>
 
-    <footer style="text-align: center; padding: 30px; color: #666; border-top: 1px solid #222;">
+    <footer style="text-align: center; padding: 30px; color: #64748b; border-top: 1px solid #e2e8f0; background: white;">
         <p>CSS Animacije Cheatsheet | 3. razred Tehničar za računalstvo</p>
         <p style="margin-top: 10px; font-size: 0.85rem;">Za printanje: Ctrl+P (ili Cmd+P na Macu)</p>
     </footer>

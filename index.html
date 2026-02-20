@@ -12,10 +12,10 @@
         }
 
         body {
-            background: #0a0a0a;
+            background: #f5f7fa;
             min-height: 100vh;
             font-family: 'Segoe UI', Arial, sans-serif;
-            color: white;
+            color: #1e293b;
         }
 
         /* HERO SEKCIJA */
@@ -25,11 +25,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background: linear-gradient(-45deg, #60a5fa, #3b82f6, #1a73e8, #1557b0);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
             padding: 40px;
             text-align: center;
+            color: white;
         }
 
         @keyframes gradient {
@@ -85,16 +86,18 @@
         }
 
         .example-card {
-            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            background: white;
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.4s ease;
             position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
         }
 
         .example-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .card-preview {
@@ -107,16 +110,7 @@
             overflow: hidden;
         }
 
-        .card-preview::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.5;
-        }
-
+        /* Boje pregleda za svaku karticu */
         .card-1 .card-preview { background: linear-gradient(45deg, #0ff, #f0f); }
         .card-2 .card-preview { background: linear-gradient(45deg, #ff416c, #ff4b2b); }
         .card-3 .card-preview { background: linear-gradient(45deg, #00d4ff, #0099ff); }
@@ -134,11 +128,11 @@
         .card-content h3 {
             font-size: 1.4rem;
             margin-bottom: 10px;
-            color: #fff;
+            color: #1e293b;
         }
 
         .card-content p {
-            color: #888;
+            color: #64748b;
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 20px;
@@ -147,7 +141,7 @@
         .card-link {
             display: inline-block;
             padding: 12px 25px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #1a73e8, #1557b0);
             color: white;
             text-decoration: none;
             border-radius: 25px;
@@ -157,20 +151,21 @@
 
         .card-link:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 5px 20px rgba(26, 115, 232, 0.4);
         }
 
         /* TEHNIKE SEKCIJA */
         .techniques {
-            background: #111;
+            background: white;
             padding: 50px;
+            border-top: 1px solid #e2e8f0;
         }
 
         .techniques h2 {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 40px;
-            color: #0ff;
+            color: #1a73e8;
         }
 
         .tech-grid {
@@ -182,39 +177,45 @@
         }
 
         .tech-item {
-            background: #1a1a2e;
+            background: #f8fafc;
             padding: 25px;
             border-radius: 15px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #1a73e8;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .tech-item h4 {
-            color: #667eea;
+            color: #1a73e8;
             margin-bottom: 10px;
         }
 
         .tech-item code {
             display: block;
-            background: #0a0a0a;
+            background: #1e293b;
             padding: 15px;
             border-radius: 8px;
             font-family: 'Courier New', monospace;
-            color: #0f0;
+            color: #a5f3a6;
             font-size: 0.85rem;
             margin-top: 10px;
             overflow-x: auto;
+        }
+
+        .tech-item p {
+            color: #64748b;
         }
 
         /* FOOTER */
         footer {
             text-align: center;
             padding: 30px;
-            color: #666;
-            border-top: 1px solid #222;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            background: white;
         }
 
         footer a {
-            color: #667eea;
+            color: #1a73e8;
         }
 
         /* Animirane ikone na karticama */
@@ -242,6 +243,51 @@
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
             75% { transform: translateX(5px); }
+        }
+
+        /* ============================================
+           RESPONZIVNI DIZAJN
+           ============================================ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .examples-grid {
+                padding: 30px 20px;
+                gap: 20px;
+            }
+            .techniques {
+                padding: 30px 20px;
+            }
+            .techniques h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ============================================
+           PRISTUPAČNOST - Za korisnike osjetljive na pokret
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            .hero {
+                animation: none;
+            }
+            .hero h1,
+            .hero p {
+                animation: none;
+            }
+            .icon-spin,
+            .icon-pulse,
+            .icon-bounce,
+            .icon-shake {
+                animation: none;
+            }
+            .example-card,
+            .card-link {
+                transition: none;
+            }
         }
     </style>
 </head>
@@ -381,8 +427,8 @@
     <section class="techniques">
         <h2>&#128214; Dokumentacija</h2>
         <div style="text-align: center; padding: 20px;">
-            <a href="cheatsheet_animacije.html" style="display: inline-block; padding: 20px 40px; background: linear-gradient(90deg, #667eea, #764ba2); color: white; text-decoration: none; border-radius: 30px; font-size: 1.3rem; font-weight: bold; transition: all 0.3s ease;">&#128220; Otvori CSS Animacije Cheatsheet</a>
-            <p style="color: #888; margin-top: 15px;">Sva sintaksa i svojstva na jednom mjestu - može se i printati!</p>
+            <a href="cheatsheet_animacije.html" style="display: inline-block; padding: 20px 40px; background: linear-gradient(90deg, #1a73e8, #1557b0); color: white; text-decoration: none; border-radius: 30px; font-size: 1.3rem; font-weight: bold; transition: all 0.3s ease;">&#128220; Otvori CSS Animacije Cheatsheet</a>
+            <p style="color: #64748b; margin-top: 15px;">Sva sintaksa i svojstva na jednom mjestu - može se i printati!</p>
         </div>
     </section>
 
