@@ -1,11 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(-45deg, #0312e7, #dae6e5, #01ddec, #01195a);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.h1{
+    text-align: center;
+    font-size:100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: #f00303;               
+            text-shadow:
+                0 0 10px #eb8108,          
+                0 0 20px #f3c600,
+                0 0 40px #dfd4d4,
+                0 0 80px #0a0102;
+
+            animation: glow-pink 2s ease-in-out infinite alternate;
+            
+        }
+       
+
+    
+
+
+</style>
 </head>
 <body>
-    
+
+<div class="container">
+
+    <h1 class="h1">INSTAGRAM</h1>
+     
+    <div class="Gumbi">
+        <Button>Preuzmi</Button>
+        <Button>Trailer</Button>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Fotografije</h3>
+        </div>
+
+        <div class="card">
+            <h3>Objave</h3>
+            
+        </div>
+
+        <div class="card">
+            <h3>Reels</h3>
+        
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-icon">🌐</div>
+        <div class="social-icon">🎮</div>
+        <div class="social-icon">📸</div>
+    </footer>
+
+</div>
+
 </body>
 </html>
