@@ -4,39 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Adventures</title>
-</head>
-<body <div class="gradient-bg">
-    <h1 <div class="neon-text">Pokemon Advantures</h1>
     <style>
-body {
-            background-color: #f0f4f8;    
-            min-height: 100vh;             
-            display: flex;                 
-            justify-content: center;      
-            align-items: center;           
-            font-family: 'Arial', sans-serif;
+        body {
+                    background-color: #f0f4f8;    
+                    min-height: 100vh;             
+                    display: flex; 
+                    flex-direction: column;                
+                    justify-content: center;      
+                    align-items: center;           
+                    font-family: 'Arial', sans-serif;
+                }
+                .neon-text{
+                    font-size: 5rem;              
+                    color: #e2935e;   
+                    text-shadow:
+                        0 0 10px #dfeb78,          
+                        0 0 20px #3584e4,          
+                        0 0 40px #3584e4,          
+                        0 0 80px #3584e4; 
+                        animation: flicker 1.5s infinite alternate;
+                        text-align: center;
+                }
+                .gradient-bg {
+                    
+                    background: linear-gradient(-45deg, #f5d6e8, #ffafe8, #a899ec, #A5B8E3);
+        
+                   
+                    background-size: 400% 400%;
+        
+                    animation: gradient 15s ease infinite;
+                }
+        
+                @keyframes gradient {
+                    0% { background-position: 0% 50%; }      
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; } 
+                }
+        
+        
+                .btn-play {      
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    text-transform: uppercase;    
+                    color: white;
+                    background: linear-gradient(45deg, #1a73e8, #4285f4);   
+                    width: 300px;
+                    font-size: 20px;
+                    padding: 10px;         
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    animation: pulse 2s infinite;
+                    
+                }
+                
+                .btn1-play {      
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    text-transform: uppercase;    
+                    color: white;
+                    background: linear-gradient(45deg, #1a73e8, #4285f4);   
+                    width: 300px;
+                    font-size: 20px;
+                    padding: 10px;         
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    animation: pulse 2s infinite;
+                    float: left;
+                    margin-top: 20px;
+                }
+                @keyframes pulse {
+            0% {
+                
+                box-shadow: 0 0 0 0 rgba(99, 216, 236, 0.7);
+            }
+            70% {
+                
+                box-shadow: 0 0 0 20px rgba(26, 115, 232, 0);
+            }
+            100% {
+             
+                box-shadow: 0 0 0 0 rgba(26, 115, 232, 0);
+            }
         }
-        .neon-text{
-            font-size: 5rem;              
-            color: #e2935e;   
-            text-shadow:
-                0 0 10px #dfeb78,          
-                0 0 20px #3584e4,          
-                0 0 40px #3584e4,          
-                0 0 80px #3584e4; 
-                animation: flicker 1.5s infinite alternate;
-                text-align: center;
-        }
-        .gradient-bg {
-            
-            background: linear-gradient(-45deg, #fecaca, #fbcfe8, #bfdbfe, #bbf7d0);
 
-           
-            background-size: 400% 400%;
+                .btn-play:hover {
+                    transition: transform 0.3s ease;
+                }
+                .btn1-play:hover {
+                    transition: transform 0.3s ease;
+                }
+          </style>
+</head>
+<body class="gradient-bg">
+    <h1 class="neon-text">Pokemon Advantures</h1>
+        <button class="btn-play">Pogledaj</button>
+        <button class="btn1-play">Trailer</button>
 
-            animation: gradient 15s ease infinite;
-        }
-
-  </style>
 </body>
 </html>
