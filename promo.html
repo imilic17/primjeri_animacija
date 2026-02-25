@@ -10,8 +10,9 @@
             font-family:Arial, Helvetica, sans-serif;
 
         }
+
     .pozadina{
-        animation: colorChange  12s ease;
+        animation: colorChange  12s ease infinite;
         background-color: bisque;
     }
 
@@ -22,15 +23,18 @@
     75%  { background-color: white; }
     100% { background-color: rgb(235, 190, 108); }
 }
+
 .box{
     display: inline-block;
-    width: 250px;
-    height: 400px;
+
 }
 .button {
     background: rgb( 165, 207, 235);
     transition: background 0.8s ease;
     border-radius: 3px;
+    display: inline-flex;
+    justify-content: center;
+    
 }
 
 .button:hover {
@@ -40,9 +44,92 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
 }
+
 #gumb { animation: bounce 2s ease-in ; 
 background: rgb(165, 207, 235);
 border-radius: 3px;}
+
+h4{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+.social{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    
+}
+
+.social span{
+    font-size: 18px;
+    display: inline-block;
+    transition: 0.5 ease-in-out;
+}
+.social span:hover{
+    transform: scale(0.8) rotate(10deg);
+}
+
+.grupa_cards{
+    text-align: center;
+}
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(44, 44, 44, 0.2);
+}
+
+body {
+            background: linear-gradient(135deg, #6e95d8, #ae81df);  
+            min-height: 100vh;
+            display: flex;
+            flex-wrap: wrap;               
+            justify-content: center;
+            align-items: center;
+            gap: 40px;                   
+            padding: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+    width: 140px;
+    height: 190px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;              
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+}
+.card-img{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h5 {
+    margin: auto;
+    color: #333;
+}
+
+.card-content p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;              
+}
+
 
     </style>
 </head>
@@ -51,15 +138,41 @@ border-radius: 3px;}
     <div class="box">
     <h2>Kontra Napad-Globalna Ofanziva</h2>
 
-    <h4>GREEN!!!!</h4>
+    <h4><a href="https://store.steampowered.com/">Steam.com</a></h4>
 
     <button class="button">PREUZMI</button>
     <button id="gumb">TRAILER</button>
 
-
-
+<div class="grupa_cards">
+<div class="card">
+    <div class="card-content">
+        <h5>Terorist</h5>
+        <p>Plant bomb and kill enemy</p>
+        <div class="card-img">💣</div>
     </div>
 </div>
-    
+
+<div class="card">
+     
+    <div class="card-content">
+        <h5>Counter-terorist</h5>
+            <p>Defend site and defuse bomb</p>
+            <div class="card-img"><img src="preuzmi.jfif"></div>
+    </div>
+</div>
+</div>
+
+        
+
+    <footer>
+        <div class="social">
+            <span>🐬</span>
+            <span>🐠</span>
+            <span>🦝</span>
+            <span>🐓</span>
+           </div>
+    </footer>
+</div>
+</div>
 </body>
 </html>
