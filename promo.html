@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /*background color: Boja 	HEX Kod	Tipična upotreba
-Neon Pink	#F000FF	Underglow / Neon natpisi
-Cyan Blue	#4DEEEA	Svjetla garaže / Lokve
-Neon Green	#74EE15	Lakeshore Tags / Nitro
-Electric Purple	#CB0FFF	Akcenti na karoseriji*/
         body{
             display: inline-block;
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
-            width: 300px;
-            background: linear-gradient(-45deg,#FF00FF,#4DEEEA,#74EE15,#CB0FFF,#00FFFF,#00CED1, );
+            height: 100%;
+            background: linear-gradient(-45deg,#000000,#CB0FFF,#FF00FF,#00FFFF,#4DEEEA,#74EE15);
+            background-size: 600% 600%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 25%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         button{
             display: flexbox;
@@ -24,37 +26,207 @@ Electric Purple	#CB0FFF	Akcenti na karoseriji*/
             border: 1px solid black;
             height: 40px;
             border-radius: 7px;
+            margin: 0 10px 0 10px;
+        }
+        h1{
+            display: inline-block;
+            color: #000000;
+            text-shadow:
+                0 0 10px #3584e4,     
+                0 0 20px #3584e4,
+                0 0 40px #3584e4,          
+                0 0 80px #3584e4;         
+
+            animation: flicker 1.5s infinite alternate;
+        }
+        @keyframes flicker{
+            0%,10%,20%,40%,50%,60%,70%,80%,100%{text-shadow:
+                0 0 10px #3584e4,     
+                0 0 20px #3584e4,
+                0 0 40px #3584e4,          
+                0 0 80px #3584e4;   }
+            33%,55%,90%{text-shadow: none;}
         }
         .opis{
             color: black;
             font-size: 16px;
         }
-        .icon{
-            letter-spacing: 20px;
-            font-size: 20px;
+        .preuzmiBtn{
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;     
+            color: white;
+            background: linear-gradient(45deg, #1a73e8, #4285f4);  
+            border: none;                  
+            border-radius: 40px;          
+            cursor: pointer;               
+            position: relative;            
+            overflow: hidden;              
+            animation: pulse 2s infinite;
         }
-        .icon:hover{
-            animation: bounce 0.5s ease;
+        @keyframes pulse{
+            0% {
+                box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(26, 115, 232, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(26, 115, 232, 0);
+            }
+        }
+        .preuzmiBtn:hover{
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        .trailerBtn{
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;
+            border: 4px solid transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+        }
+        .trailerBtn::before{
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg,#ff0000,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00c8,#ff0000);
+            background-size: 400%;
+            border-radius: 12px;
+            z-index: -1;
+            animation: rainbow 20s linear infinite;
+        }
+        .trailerBtn::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            border-radius: 6px;
+            z-index: -1;
+        }
+        @keyframes rainbow{
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+        .kartica{
+            width: 280px;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .karticaBg{
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0d9488, #14b8a6);
+            transition: transform 0.5s ease;
+        }
+        .kartica:hover .karticaBg{
+            transform: scale(1.1);
+        }
+        .katicaCont{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            transform: translateY(60px);
+            transition: transform 0.4s ease;
+        }
+        .kartica:hover .katicaCont{
+            transform: translateY(0);
+        }
+        .katicaCont h3{
+            margin: 0 0 10px 0;
+        }
+        .katicaCont p{
+            opacity: 0;
+            transition: opacity 0.4s ease 0.1s;
+        }
+        .kartica:hover .katicaCont p{
+            opacity: 1;
+        }
+        .icon{
+            display: flex;
+            gap: 20px;
+        }
+        .icon a{
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+        .icon a.facebook { background: #1877f2; }
+        .icon a.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .icon a.twitter { background: #1da1f2; }
+        .icon a.youtube { background: #ff0000; }
+        .icon a.discord { background: #5865f2; }*
+        .icon a:hover{
+            transform: rotate(360deg) scale(1.2);
+            border-radius: 50%;
+            box-shadow: 0 0 30px currentColor;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Car game</h1>
+        <h1 class="prviH1">Heatwave</h1>
+        <h1 class="drugiH1">Pursuit</h1>
     </header>
     <main>
         <p class="opis">U ovoj igrici krećeš kao ulični vozač koji kroz ilegalne utrke i opasne driftove zarađuje novac za tuning i nove aute. Sve se vrti oko adrenalinskih potjera s policijom, bjesomučne vožnje s nitrom kroz gradski promet i nadogradnje tvoje pile kako bi od običnog auta napravio najbržu zvijer u gradu i postao legenda asfalta.</p>
-    <button>PREUZMI</button>
-    <button>TRAILER</button>
-    <!--feature min: 1 max:3
-    1.Modifikacije auta
-    2.Policijske potjere
-    3.LIjepoi grad s dinamičnim prometom
-    -->
-
+    <button class="preuzmiBtn">PREUZMI</button>
+    <button class="trailerBtn">TRAILER</button>
+    <div class="kartica">
+        <div class="karticaBg">Slika</div>
+        <div class="katicaCont">
+            <h3>Modifikacije auta</h3>
+            <p></p>
+        </div>
+    </div>
+    <div class="kartica">
+        <div class="karticaBg">Slika</div>
+        <div class="katicaCont">
+            <h3>Policijske potjere</h3>
+            <p></p>
+        </div>
+    </div>
+    <div class="kartica">
+        <div class="karticaBg">Slika</div>
+        <div class="katicaCont">
+            <h3>LIjepoi grad s dinamičnim prometom</h3>
+            <p></p>
+        </div>
+    </div>
     </main>    
     <footer>
-        <p class="icon">&#x1F310;&#x1F4F7;&#x1F3AE;&#x1F3B5;</p>
+        <div class="icon">
+            <a href="">&#x1F310;</a>
+            <a href="">&#x1F4F7;</a>
+            <a href="">&#x1F3AE;</a>
+            <a href="">&#x1F3B5;</a>
+        </div>
     </footer>
     
     
