@@ -22,16 +22,16 @@
 }
 .button { animation: pulse 2s ease-in-out infinite; 
 background-color: white;
-color: blue;
-padding: 10px;
+color: rgb(0, 0, 0);
+padding: 15px;
 margin: 15px;
 border-radius:5px;
 }
 .gumb{
 animation: pulse 2s ease-in-out infinite; 
 background-color: white;
-color: blue;
-padding: 10px;
+color: rgb(0, 0, 0);
+padding: 15px;
 margin: 15px;
 border-radius: 5px;
 }
@@ -41,20 +41,185 @@ border-radius: 5px;
 }
 
 .button:hover {
-    background: goldenrod;
+    background:#f0cd0b;
 }
+.gumb:hover{
+    background:#f0cd0b;
+}
+.pozadina{
+    animation: colorChange 12s ease;
+    background-color: rgb(213, 3, 255);
+    display: inline-block;
+}
+.box{
+    display: inline-block;
+    width: 700px;
+    height: 700x;
+}
+@keyframes colorChange{
+    0% {background-color: rgb(255,255,255);}
+    25%{background-color: rgb(14, 212, 219);}
+    50%{background-color: rgb(18, 148, 235);}
+    75%{background-color: blueviolet;}
+    100%{background-color: rgb(226, 7, 208);}
+}
+ p{font-size: 2.5rem;
+            color: #f0cd0b;               
+
+            overflow: hidden;             
+            white-space: nowrap;          
+            border-right: 4px solid #1a73e8;
+
+            width: 0;                      
+
+           
+            animation:
+                typing 3.5s steps(25, end) forwards,
+                blink 0.75s step-end infinite;
+            
+        }
+
+       
+        @keyframes typing {
+            from { width: 0; }          
+            to { width: 100%; }            
+            
+            
+            
+        }
+        h1 {
+            color: #813d9c;               
+            text-shadow:
+                0 0 10px #c061cb,          
+                0 0 20px #c061cb,
+                0 0 40px #c061cb,
+                0 0 80px #c061cb;
+
+            animation: glow-pink 2s ease-in-out infinite alternate;
+       
+        }
+
+    
+        @keyframes glow-pink {
+            from {
+               
+                text-shadow:
+                    0 0 10px #c061cb,
+                    0 0 20px #c061cb,
+                    0 0 40px #c061cb;
+            }
+            to {
+                
+                text-shadow:
+                    0 0 20px #c061cb,
+                    0 0 40px #c061cb,
+                    0 0 80px #c061cb,
+                    0 0 120px #c061cb;
+            }
+        }
+        .social{
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        .social span{
+            font-size: 45px;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
+        .social span:hover{
+            transform: scale(1.3) rotate(15deg);
+        }
+        body {
+            background: linear-gradient(135deg, #e8f0fe, #f3e8ff);  
+            min-height: 100vh;
+            display: flex;
+            flex-wrap: wrap;              
+            justify-content: center;
+            align-items: center;
+            gap: 40px;                   
+            padding: 40px;
+            font-family: Arial, sans-serif;}
+
+            .card {
+            width: 200px;
+            height: 300px;
+            background: rgb(181, 10, 204);
+            border-radius: 20px;
+            overflow: hidden;              
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+       
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .card-content p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;           
+        }
+
+       
 
     
 </style>
 <body>
+    <div class="pozadina">
+        <div class="box">
     <h1>REAL MADRID</h1>
     <p>HALA MADRID!!!</p>
     <button class="button">PREUZMI</button>
     <button class="gumb">TRAILER</button>
-   
+    <div class="card">
+        <div class="card-img">
+            <div class="card-content">    
+                <h3>Povjest</h3>
+                <p>Osnovan 1902</p>
+            </div>
+           
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-img">
+            <div class="card-content">    
+                <h3>Povjest</h3>
+                <p>Osnovan 1902</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-img">
+            <div class="card-content">    
+                <h3>Povjest</h3>
+                <p>Osnovan 1902</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+
+
+   <div class="social">
+    <span>🐵</span>
+    <span>☀</span>
+    <span>💎</span>
+    <span>👻</span>
+   </div>
     
        
-        
-        
+</div>
+</div>  
 </body>
 </html>
