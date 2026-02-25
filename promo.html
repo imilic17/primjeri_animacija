@@ -5,13 +5,58 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            /* linear-gradient s 4 SVIJETLE boje */
+            background: linear-gradient(-45deg, #ff9999, #fabcbc, #fed6bf, #ffbaa5);
+
+            /* TRIK! Gradient je 4x veći od elementa (400% x 400%)
+               To nam omogućuje da ga "pomičemo" bez ponavljanja */
+            background-size: 400% 400%;
+
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }      /* Lijevo, sredina vertikalno */
+            50% { background-position: 100% 50%; }   /* Desno, sredina vertikalno */
+            100% { background-position: 0% 50%; }    /* Vraća se na početak */
+            /*
+               Gradient se pomiče s lijeva na desno i natrag.
+               Budući da je 400% velik, vidimo "protjecanje" boja.
+            */
+        }
+
         h3{
             text-align: center;
             color: gray;
         }
 
-        h2{
+        .naziv{
             text-align: center;
+
+            font-size: 3rem;
+            color: #f85d5d;
+
+            text-shadow:
+                0 0 10px #f8aa8a,
+                0 0 20px #f8aa8a,
+                0 0 40px #f8aa8a,
+                0 0 80px #f8aa8a;
+
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                    0 0 10px #f8aa8a,
+                    0 0 20px #f8aa8a,
+                    0 0 40px #f8aa8a,
+                    0 0 80px #f8aa8a;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
         }
 
         #id1{
@@ -24,16 +69,48 @@
 
         .container{
             display: flex;
-           /* background-color: dodgerblue; */
-           justify-content: center;
+            justify-content: center;
         }
 
-        .container div{
+       /* .container div{
             background-color: #f1f1f1;
             margin: 10px;
             padding: 20px;
             font-size: 24px;
+            border: 1px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+        }*/
+
+        .container div {
+            margin: 10px;
+            padding: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            background: linear-gradient(45deg, #f85d5d, #f85d5d);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+
+            animation: pulse 2s infinite;
         }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 #f8895d;
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(26, 115, 232, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(26, 115, 232, 0);
+            }
+        }
+
 
         .container2{
             display: flex;
@@ -42,37 +119,44 @@
 
         .container2 div{
             background-color: #f1f1f1;
-            margin: 10px;
-            padding: 20px;
+            margin: 20px;
+            padding: 60px;
             font-size: 24px;
+            border: 1px dashed black;
+            border-radius: 10px;
+            overflow: hidden;             
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .container2 div:hover{
+            transform: translateY(-20px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
         }
 
         .ikone{
             display: flex;
             justify-content: center;
-            margin: 10px;
         }
 
     </style>
 </head>
 <body>
-    <h3>animirana pozadina (gradient) prekriva cijelu stranicu</h3>
 
-    <h2>NAZIV IGRE / APLIKACIJE</h2>
+    <h1 class="naziv">Assetto Corsa</h1>
 
-    <h3>neon / typing / glitch animacija</h3>
+    <h3 id="id1">Assetto Corsa je simulacijska videoigra trkaćih automobila koju je razvila talijanska tvrtka za razvoj videoigara Kunos Simulazioni. <br> Dizajnirana je s naglaskom na realistično iskustvo utrkivanja, pružajući opsežne mogućnosti prilagodbe i modiranja.</h3>
 
-    <h3 id="id1">kratki slogan ili opis</h3>
-
-    <div class="container">
+    <div class="container" onclick="alert">
         <div>PREUZMI</div>
         <div>TRAILER</div>
     </div>
 
-    <p id="p1">animirani gumbi s razlicitim hover efektima</p>
+    
 
-    <div class="container2">
-        <div>FFeature 1 <br> hover efekt</div>
+    <div class="container2" onclick="alert">
+        <div>Feature 1 <br> hover efekt</div>
         <div>Feature 2 <br> hover efekt</div>
         <div>Feature 3 <br> hover efekt</div>
     </div>
@@ -82,5 +166,7 @@
         <div><img src="icons8-instagram-logo-94.png" alt="#" height="40px" width="40px"></div>
         <div><img src="icons8-youtube-logo-94.png" alt="#" height="40px" width="40px"></div>
     </div>
+
+    <p id="p1">social ikone s hover animacijom</p>
 </body>
 </html>
