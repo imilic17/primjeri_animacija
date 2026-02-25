@@ -6,6 +6,10 @@
     <title>Document</title>
     
     <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
         h1{
             text-align: center;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -20,19 +24,14 @@
     100% { background: red; }
 }
 
-        b1{
 
 
-
-
-            }
-
-    .container{
+    .buttoni{
         display: flex;
         justify-content: center;
     }
 
-    .container div{
+    .buttoni div{
         background-color: rgb(173, 168, 168);
         padding: 20px;
         margin: 20px;
@@ -44,35 +43,156 @@
 
     }
 
-    .container2{
+    .featuri{
         display: flex;
         justify-content: center;
     }
     
-    .container2 div{
+    .featuri div{
         background-color: rgb(173, 168, 168);
         padding: 20px;
         margin: 20px;
         font-size: 24px;
     }
 
+    .pozadina{
+        animation: colorChange 15s ease;
+        background-color: aquamarine;
+    }
+
+    @keyframes colorChange {
+            0% { background-color: rgb(255, 255, 255); }   
+            25% { background-color: rgb(Orange); }     
+            50% { background-color: rgb(233,233, 102); }  
+            75% { background-color: rgb(255, 255, 255); }   
+            100% { background-color: rgb(235,190 , 108); } 
+    }
+
+        .button{
+            padding: 20px 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            background: linear-gradient(45deg, #00e1ff, #00e1ff);  
+            border: none;
+            border-radius: 80px;           
+            cursor: pointer;
+        }
+
+      
+        .button:hover {
+            animation: shake 0.5s ease-in-out;
+
+        }
+
+    
+        @keyframes shake {
+            
+            0%, 100% { transform: translateX(0); }     
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }  
+            20%, 40%, 60%, 80% { transform: translateX(5px); }        
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        
+        .social-icons a.facebook { background: #1877f2; }
+        .social-icons a.instagram { background: linear-gradient(45deg, #f09433, #dc2743); }
+        .social-icons a.twitter { background: #1da1f2; }
+        .social-icons a.youtube { background: #ff0000; }
+        .social-icons a.twitch { background: #9146ff; }
+
+        
+        .social-icons a:hover {
+            animation: bounce 0.5s ease;
+        }
+
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }      
+            25% { transform: translateY(-15px); }       
+            50% { transform: translateY(-5px); }        
+            75% { transform: translateY(-10px); }       
+        
+         
+            
+        }
+
+        @media (max-width: 600px) {
+            body {
+                gap: 40px;
+                padding: 30px 20px;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+            .social-icons-v1 a,
+            .social-icons-v2 a,
+            .social-icons-v3 a,
+            .social-icons-v4 a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .social-icons-v1 a,
+            .social-icons-v1 a::before,
+            .social-icons-v2 a,
+            .social-icons-v3 a,
+            .social-icons-v3 a::after,
+            .social-icons-v4 a:hover {
+                animation: none;
+                transition: none;
+            }
+        }
+
     </style>
 
 </head>
 <body>
-<h1>RUMBLE</h1>
-<p id="p1">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    <div class="pozadina">
+<h1>KYLIAN MBAPPE</h1>
+<p id="p1">MBAPPE</p>
 
-<div class="container">
-    <div>PREUZMI</div>
-    <div>TRAILER</div>
+
+
+<div class="buttoni">
+    <button class="button">KYLIAN</button>
+    <button class="button">MBAPPE</button>
 </div> 
 
-<div class="container2">
-    <div>Feature 1</div>
-    <div>Feature 2</div>
-    <div>Feature 3</div>
-</div>
+<div class="featuri">
+    <div>FRANCE</div>
+    <div>PSG</div>
+    <div>REAL MADRID</div>
+</div>    
 
+    
+    <div class="social-icons">
+        <a href="#" class="instagram">&#128247;</a>   <!-- 📷 -->
+        <a href="#" class="twitter">&#120143;</a>      <!-- 𝕏 -->
+        <a href="#" class="youtube">&#9658;</a>        <!-- ▶ -->
+        <a href="#" class="twitch">&#128250;</a>       <!-- 📺 TV za Twitch -->
+    </div>
+
+</div>
 </body>
 </html>
