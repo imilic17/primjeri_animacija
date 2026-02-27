@@ -15,7 +15,7 @@ body{
     height: 100vh;
     background: linear-gradient(
         to bottom left,
-        #052a3d
+        #fff
         #ece50d 25%
         #ff00ff 50%,
         #f00 75%,
@@ -23,14 +23,16 @@ body{
     );
     background-size: 300% 300%;
     animation: gradientMove 5s ease infinite;
-    color: #3625c4;
+    color: #5a49f0;
     font-weight: bold;
 }
 /*Background transition thing*/
 @keyframes gradientMove {
-    0% {background-color: #052a3d}
+    0% {background-color: #fff}
     10% {background-color: #ece50d}
+    15%{background-color: #fff}
     20% {background-color: #ff00ff}
+    25%{background-color: #fff;}
     30% {background-color: #f00}
     40% {background-color: #ff00ff}
     50% {background-color: #ece50d}
