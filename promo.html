@@ -33,7 +33,26 @@
             0% { transform: translateX(-100%); }
             100% { transform: translateX(350%); }
         }
-
+        .loaderBg{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 2rem;
+            animation: fadeOut 3s forwards;
+            z-index: 2;
+        }
+        @keyframes fadeOut{
+            0% {opacity: 1;}
+            75% {opacity: 1;}
+            100% {opacity: 0; pointer-events: none;}
+        }
         @keyframes gradient {
             0% { background-position: 0% 25%; }
             50% { background-position: 100% 50%; }
@@ -47,6 +66,17 @@
             height: 40px;
             border-radius: 7px;
             margin: 0 10px 0 10px;
+        }
+        .loginButton{
+            position: relative;
+            display: inline-block;
+            float: right;
+            margin: 20px 10px 0 0;
+            background-color: rgba(255, 255, 255, 0);
+            border: none;
+            color: black;
+            font-size: 1rem;
+            z-index: 999;
         }
         h1{
             display: inline-block;
@@ -222,14 +252,19 @@
 </head>
 <body>
     <header>
+        <a href="kontaktforma.html">
+            <button type="button" class="loginButton">LOGIN</button>
+        </a>
+        <div class="loaderBg">
+            <div class="loader-container">
+                <p>Učitavanje...</p>
+                    <div class="progress-bar"></div>
+        </div>
+    </div>
         <h1 class="prviH1">Heatwave</h1>
         <h1 class="drugiH1">Pursuit</h1>
     </header>
     <main>
-    <div class="loader-container">
-        <div class="progress-bar"></div>
-        <p>Progress Bar</p>
-    </div>
         <p class="opis">U ovoj igrici krećeš kao ulični vozač koji kroz ilegalne utrke i opasne driftove zarađuje novac za tuning i nove aute. Sve se vrti oko adrenalinskih potjera s policijom, bjesomučne vožnje s nitrom kroz gradski promet i nadogradnje tvoje pile kako bi od običnog auta napravio najbržu zvijer u gradu i postao legenda asfalta.</p>
     <button class="preuzmiBtn">PREUZMI</button>
     <a href="pdf/Zadatak - Promotivna stranica s CSS animacijama.pdf" download><button class="trailerBtn">TRAILER</button></a>
@@ -267,8 +302,5 @@
             <a href="" class="glazba">&#x1F3B5;</a>
         </div>
     </footer>
-    
-    
-
 </body>
 </html>
