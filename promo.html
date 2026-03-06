@@ -164,12 +164,107 @@
             }
         }
 
+        .social-icons{
+        display: flex;
+        justify-content: center;
+        }
+
+
+        .neon-text {
+            font-size: 3rem;               
+            color: #1a5fb4;                
+
+   
+            text-shadow:
+                0 0 10px #3584e4,          
+                0 0 20px #3584e4,          
+                0 0 40px #3584e4,          
+                0 0 80px #3584e4;          
+
+            animation: flicker 1.5s infinite alternate;
+
+        }
+
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                    0 0 10px #3584e4,
+                    0 0 20px #3584e4,
+                    0 0 40px #3584e4,
+                    0 0 80px #3584e4;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        .container {
+            text-align: center;           
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;               
+            margin-top: 10px;              
+        }
+
+
+
+
+
+        .card {
+            display: inline-block;
+            width: 230px;
+            height: 320px;
+            background-color: #c7ddf7;
+            border-radius: 20px;
+            overflow: hidden;              
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+   
+        .card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;               
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .card-content p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;              
+        }
+
+
+
     </style>
 
 </head>
 <body>
     <div class="pozadina">
-<h1>KYLIAN MBAPPE</h1>
+<div class="container">
+<h1 class="neon-text">KYLIAN MBAPPE</h1>
 <p id="p1">MBAPPE</p>
 
 
@@ -179,11 +274,32 @@
     <button class="button">MBAPPE</button>
 </div> 
 
-<div class="featuri">
-    <div>FRANCE</div>
-    <div>PSG</div>
-    <div>REAL MADRID</div>
-</div>    
+
+    <div class="card">FRANCUSKA
+            <div class="card-img"><img src="francuska.png" alt="france"></div> 
+                    <div class="card-content">
+                        <h3>Povjest</h3>
+                        <p>Francuska nogometna reprezentacija predstavlja Republiku Francusku u nogometu. Nalazi se pod upravom Francuskog nogometnog saveza (fr. Fédération Française de Football), vodećeg nogometnog tijela u Francuskoj, a natječe se kao članica UEFA-e.</p>
+                    </div>
+        </div>
+
+    <div class="card">PSG
+                <div class="card-img"><img src="psg.png" alt="psg"></div>  
+                <div class="card-content">
+                    <h3>PSG naslov</h3>
+                    <p>PSG content.</p>
+                </div>
+                </div>
+
+
+ <div class="card">REAL MADRID
+        <div class="card-img"><img src="real.png" alt="real"></div> 
+        <div class="card-content">
+            <h3>REAL MADRID Zone</h3>
+            <p>REAL MADRID content</p>
+        </div>
+    </div>
+
 
     
     <div class="social-icons">
@@ -192,6 +308,8 @@
         <a href="#" class="youtube">&#9658;</a>        <!-- ▶ -->
         <a href="#" class="twitch">&#128250;</a>       <!-- 📺 TV za Twitch -->
     </div>
+
+
 
 </div>
 </body>
