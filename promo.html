@@ -71,17 +71,7 @@
             display: flex;
             justify-content: center;
         }
-
-       /* .container div{
-            background-color: #f1f1f1;
-            margin: 10px;
-            padding: 20px;
-            font-size: 24px;
-            border: 1px solid black;
-            border-radius: 10px;
-            cursor: pointer;
-        }*/
-
+        
         .container div {
             margin: 10px;
             padding: 20px;
@@ -115,12 +105,13 @@
         .container2{
             display: flex;
             justify-content: center;
+            text-align: center;
         }
 
         .container2 div{
             background-color: #f1f1f1;
             margin: 20px;
-            padding: 60px;
+            padding: 15px;
             font-size: 24px;
             border: 1px dashed black;
             border-radius: 10px;
@@ -128,6 +119,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: all 0.4s ease;
             cursor: pointer;
+            background-color: lightgray;
         }
 
         .container2 div:hover{
@@ -135,9 +127,37 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.2);
         }
 
-        .ikone{
+        .social-icons-v2 {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .social-icons-v2 a {
+            width: 70px;
+            height: 70px;
             display: flex;
             justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .social-icons-v2 a.facebook { background: #1877f2; }
+        .social-icons-v2 a.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .social-icons-v2 a.twitter { background: #1da1f2; }
+        .social-icons-v2 a.youtube { background: #ff0000; }
+        .social-icons-v2 a.discord { background: #5865f2; }
+
+        .social-icons-v2 a:hover {
+            transform: rotate(360deg) scale(1.2);
+            /* rotate(360deg) = puna rotacija
+               scale(1.2) = povećanje za 20% */
+            border-radius: 50%;
+            box-shadow: 0 0 30px currentColor;
         }
 
     </style>
@@ -148,25 +168,22 @@
 
     <h3 id="id1">Assetto Corsa je simulacijska videoigra trkaćih automobila koju je razvila talijanska tvrtka za razvoj videoigara Kunos Simulazioni. <br> Dizajnirana je s naglaskom na realistično iskustvo utrkivanja, pružajući opsežne mogućnosti prilagodbe i modiranja.</h3>
 
-    <div class="container" onclick="alert">
+    <div class="container">
         <div>PREUZMI</div>
         <div>TRAILER</div>
     </div>
 
-    
-
-    <div class="container2" onclick="alert">
-        <div>Feature 1 <br> hover efekt</div>
-        <div>Feature 2 <br> hover efekt</div>
-        <div>Feature 3 <br> hover efekt</div>
+    <div class="container2">
+        <div><img src="Alfa-Romeo-Quadrofoglio-Silverstone-Assetto-Corsa.jpg" alt="alfa" width="300px" height="175px"> <br> Alfa-Romeo-Quadrofoglio </div>
+        <div><img src="MicrosoftTeams-image-2-1-1000x600.jpg" alt="bmw" width="300px" height="175px"> <br> BMW m4 gt3 </div>
+        <div><img src="ss_f529e29515c10785e6df310beb0f0951103745e8.webp" alt="shelby" width="300px" height="175px"> <br> Shelby cobra </div>
     </div>
 
-    <div class="ikone">
-        <div><img src="icons8-facebook-logo-96.png" alt="#" height="40px" width="40px"></div>
-        <div><img src="icons8-instagram-logo-94.png" alt="#" height="40px" width="40px"></div>
-        <div><img src="icons8-youtube-logo-94.png" alt="#" height="40px" width="40px"></div>
+    <div class="social-icons-v2 ">
+        <a href="#" class="facebook"><img src="icons8-facebook-logo-96.png" width="50px" height="50px"></a>
+        <a href="#" class="instagram"><img src="icons8-instagram-logo-94.png" width="50px" height="50px"></a>
+        <a href="#" class="youtube"><img src="icons8-youtube-logo-94.png" width="50px" height="50px"></a>
     </div>
 
-    <p id="p1">social ikone s hover animacijom</p>
 </body>
 </html>
