@@ -15,6 +15,7 @@
     }
     p{
         text-align: center;
+        color: #e8b81a;
     }
     @keyframes pulse {
     0%, 100% { transform: scale(1); }
@@ -29,14 +30,15 @@ border-radius:5px;
 }
 .gumb{
 animation: pulse 2s ease-in-out infinite; 
-background-color: white;
+    background: rgb(181, 10, 204);
+    
 color: rgb(0, 0, 0);
 padding: 15px;
 margin: 15px;
 border-radius: 5px;
 }
 .button {
-    background: white;
+    background: rgb(181, 10, 204);
     transition: background 0.3s ease;
 }
 
@@ -53,14 +55,14 @@ border-radius: 5px;
 }
 .box{
     display: inline-block;
-    width: 700px;
-    height: 700x;
+    width: 800px;
+    height: 1200x;
 }
 @keyframes colorChange{
-    0% {background-color: rgb(255,255,255);}
-    25%{background-color: rgb(14, 212, 219);}
-    50%{background-color: rgb(18, 148, 235);}
-    75%{background-color: blueviolet;}
+    0% {background-color: rgba(226, 14, 180, 0.986);}
+    25%{background-color: rgb(231, 6, 231);}
+    50%{background-color: rgb(250, 27, 250);}
+    75%{background-color: rgb(205, 6, 223);}
     100%{background-color: rgb(226, 7, 208);}
 }
  p{font-size: 2.5rem;
@@ -68,7 +70,7 @@ border-radius: 5px;
 
             overflow: hidden;             
             white-space: nowrap;          
-            border-right: 4px solid #1a73e8;
+            border-right: 4px solid #e8b81a;
 
             width: 0;                      
 
@@ -137,8 +139,8 @@ border-radius: 5px;
             flex-wrap: wrap;              
             justify-content: center;
             align-items: center;
-            gap: 40px;                   
-            padding: 40px;
+            gap: 400px;                   
+            padding: 400px;
             font-family: Arial, sans-serif;}
 
             .card {
@@ -150,6 +152,8 @@ border-radius: 5px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: all 0.4s ease;
             cursor: pointer;
+            display: inline-block;
+           
         }
        
         .card-content {
@@ -158,13 +162,17 @@ border-radius: 5px;
 
         .card-content h3 {
             margin: 0 0 10px 0;
-            color: #333;
+            color: #000000;
         }
 
         .card-content p {
-            color: #666;
+            color: #facd06;
             font-size: 0.9rem;
             line-height: 1.5;           
+        }
+        .card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
         }
 
        
@@ -178,11 +186,13 @@ border-radius: 5px;
     <p>HALA MADRID!!!</p>
     <button class="button">PREUZMI</button>
     <button class="gumb">TRAILER</button>
+    <div>
     <div class="card">
         <div class="card-img">
             <div class="card-content">    
                 <h3>Povjest</h3>
-                <p>Osnovan 1902</p>
+                <p>Real Madrid CF je <br> nogometni klub iz Madrid <br> u Španjolska osnovan <br>1902,
+                     koji je postao jedan od <br>najuspješnijih klubova na <br>svijetu</p>
             </div>
            
         </div>
@@ -190,26 +200,26 @@ border-radius: 5px;
     <div class="card">
         <div class="card-img">
             <div class="card-content">    
-                <h3>Povjest</h3>
-                <p>Osnovan 1902</p>
+                <h3>Stadion</h3>
+                <p>Stadion kluba <br>Real Madrid CF  je <br>Santiago Bernabéu <br>Stadium u Madrid, <br>a otvoren je 1947. godine</p>
             </div>
         </div>
         </div>
-    </div>
+    
     <div class="card">
         <div class="card-img">
             <div class="card-content">    
-                <h3>Povjest</h3>
-                <p>Osnovan 1902</p>
+                <h3>Postignuča</h3>
+                <p>Najviše osvojenih <br>trofeja u <br>UEFA Champions League.
+
+                    <br>Osvojili su 3 Lige prvaka <br> zaredom (2016–2018) <br>pod trenerom <br> Zinedine Zidane.
+                    
+                   <br> Više od 30 naslova <br> u La Liga.</p>
             </div>
         </div>
         </div>
     </div>
-
-
-
-
-
+</div>
 
    <div class="social">
     <span>🐵</span>
