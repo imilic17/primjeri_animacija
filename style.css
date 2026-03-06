@@ -14,3 +14,12 @@
 #gumb { animation: bounce 2s ease-in infinite; 
 background: rgb(248, 8, 8);
 border-radius: 12px;}
+
+.card-img{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+}

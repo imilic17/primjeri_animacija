@@ -26,8 +26,14 @@
 
 .box{
     display: inline-block;
+    width: 650px;
+    height: 450px;
 
 }
+.gumbi{
+    text-align: center;
+}
+
 .button {
     background: rgb( 165, 207, 235);
     transition: background 0.8s ease;
@@ -106,14 +112,7 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: all 0.4s ease;
 }
-.card-img{
-    width: 15px;
-    height: 15px;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    font-size: 4rem;
-}
+
 
 .card-content {
     padding: 20px;
@@ -131,6 +130,8 @@ body {
 }
 
 
+
+
     </style>
 </head>
 <body>
@@ -140,15 +141,17 @@ body {
 
     <h4><a href="https://store.steampowered.com/">Steam.com</a></h4>
 
+    <div class="gumbi">
     <button class="button">PREUZMI</button>
     <button id="gumb">TRAILER</button>
+    </div>
 
 <div class="grupa_cards">
 <div class="card">
     <div class="card-content">
         <h5>Terorist</h5>
         <p>Plant bomb and kill enemy</p>
-        <div class="card-img">💣</div>
+        <div>💣</div>
     </div>
 </div>
 
@@ -157,8 +160,17 @@ body {
     <div class="card-content">
         <h5>Counter-terorist</h5>
             <p>Defend site and defuse bomb</p>
-            <div class="card-img"><img src="preuzmi.jfif"></div>
+            <div>👮</div>
     </div>
+</div>
+<div class="card">
+     
+    <div class="card-content">
+        <h5>Arms race</h5>
+            <p>Kill enemy and upgrade guns</p>
+            <div>👮</div>
+    </div>
+</div>
 </div>
 </div>
 
