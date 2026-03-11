@@ -55,9 +55,11 @@
         font-size: 24px;
     }
 
-    .pozadina{
-        animation: colorChange 15s ease;
+    body{
+        animation: colorChange 6s ease;
         background-color: aquamarine;
+        background-size: 400% 400%;
+    
     }
 
     @keyframes colorChange {
@@ -216,6 +218,8 @@
 
         .card {
             display: inline-block;
+            padding: 30px;
+            text-align: center;
             width: 230px;
             height: 320px;
             background-color: #c7ddf7;
@@ -224,6 +228,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: all 0.4s ease;
             cursor: pointer;
+            
         }
 
    
@@ -255,15 +260,19 @@
             font-size: 0.9rem;
             line-height: 1.5;              
         }
-
+.kartice{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
 
 
     </style>
 
 </head>
 <body>
-    <div class="pozadina">
-<div class="container">
+    
+
 <h1 class="neon-text">KYLIAN MBAPPE</h1>
 <p id="p1">MBAPPE</p>
 
@@ -274,20 +283,18 @@
     <button class="button">MBAPPE</button>
 </div> 
 
-
+<div class="kartice">
     <div class="card">FRANCUSKA
             <div class="card-img"><img src="francuska.png" alt="france"></div> 
                     <div class="card-content">
-                        <h3>Povjest</h3>
-                        <p>Francuska nogometna reprezentacija predstavlja Republiku Francusku u nogometu. Nalazi se pod upravom Francuskog nogometnog saveza (fr. Fédération Française de Football), vodećeg nogometnog tijela u Francuskoj, a natječe se kao članica UEFA-e.</p>
+                        <h3>FRANCE</h3>
                     </div>
         </div>
 
     <div class="card">PSG
                 <div class="card-img"><img src="psg.png" alt="psg"></div>  
                 <div class="card-content">
-                    <h3>PSG naslov</h3>
-                    <p>PSG content.</p>
+                    <h3>PSG</h3>
                 </div>
                 </div>
 
@@ -295,11 +302,10 @@
  <div class="card">REAL MADRID
         <div class="card-img"><img src="real.png" alt="real"></div> 
         <div class="card-content">
-            <h3>REAL MADRID Zone</h3>
-            <p>REAL MADRID content</p>
+            <h3>REAL MADRID</h3>
         </div>
     </div>
-
+</div>
 
     
     <div class="social-icons">
@@ -311,6 +317,6 @@
 
 
 
-</div>
+
 </body>
 </html>
