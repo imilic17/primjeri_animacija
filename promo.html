@@ -133,21 +133,23 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            padding: 50px;
+            padding: 20px;
         }
 
         .kartice{
+            display: flex;
             justify-content: center;
             text-align: center;
-            gap: 20px;
-            padding: 50px;
+            gap: 50px;
+            margin:auto;
+            padding: 5px;
             height: 100px;
-            width: 800px;
+            width: 900px;
         }
 
 
          .R{
-            display: inline-block;
+            
             width: 200px;
             height: 300px;
             background: white;
@@ -155,6 +157,7 @@
             overflow: hidden;
             transition: all 0.4s ease;
             cursor: pointer;
+            color: rgb(47, 146, 238);
         }
 
         .R:hover {
@@ -163,8 +166,8 @@
         }
 
         .R-img {
-            width: 100%;
-            height: 180px;
+            width: 50%;
+            height: 80px;
             background: linear-gradient(45deg, #ff6b6b, #feca57);
             display: flex;
             justify-content: center;
@@ -190,7 +193,7 @@
 
 
         .M{
-            display: inline-block;
+            
             width: 200px;
             height: 300px;
             background: white;
@@ -198,6 +201,8 @@
             overflow: hidden;
             transition: all 0.4s ease;
             cursor: pointer;
+            background-color: red;
+            color: orange;
         }
 
         .M:hover {
@@ -206,8 +211,8 @@
         }
 
         .M-img {
-            width: 100%;
-            height: 180px;
+            width: 50%;
+            height: 80px;
             background: linear-gradient(45deg, #ff6b6b, #feca57);
             display: flex;
             justify-content: center;
@@ -232,7 +237,7 @@
 
 
         .J{
-            display: inline-block;
+           
             width: 200px;
             height: 300px;
             background: white;
@@ -240,6 +245,8 @@
             overflow: hidden;
             transition: all 0.4s ease;
             cursor: pointer;
+            background-color: rgb(255, 71, 157);
+            color: rgb(0, 0, 0);
         }
 
         .J:hover {
@@ -255,6 +262,7 @@
             justify-content: center;
             align-items: center;
             font-size: 4rem;
+            
         }
 
         .J-content {
@@ -271,6 +279,33 @@
             font-size: 0.9rem;
             line-height: 1.5;
         }
+        .social{
+            justify-content: center;
+            display: flex;
+            gap: 15px;
+            padding-top: 200px;
+            mar
+        }
+        .social span{
+            font-size: 35px;
+            
+        }
+        span {
+            
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        span:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        
+       
+        
 
 
         </style>
@@ -283,11 +318,20 @@
     <button class="Cristiano">Cristiano</button>
     <button class="Ronaldo">Ronaldo</button>
 </div>
-    <div class="kartice">
-        <div class="R"><h3>Real Madrid</h3><p>Ronaldo je u Real Madridu bio najbolji i osvojio najviše trofeja</p></div>
-        <div class="M"><h3>Manchester United</h3><p>Ronaldu je Manchester United prvi klub s kojim je osovjio ligu prvaka </p></div>
-        <div class="J"><h3>Juventus</h3><p>Ronaldo je u najmanje utakmica zabio 100 golova za Juventus</p></div>
-    </div>
+    <section class="kartice">
+        <div class="R"><h3>Real Madrid</h3><p>Ronaldo je u Real Madridu bio najbolji i osvojio najviše trofeja</p><img src="icons8-real-madrid-50.png"></div>
+        <div class="M"><h3>Manchester United</h3><p>Ronaldu je Manchester United prvi klub s kojim je osvojio ligu prvaka</p><img src="icons8-manchester-united-50.png"></div>
+        <div class="J"><h3>Juventus</h3><p>Ronaldo je u najmanje utakmica zabio 100 golova za Juventus</p><img src="icons8-juventus-50.png"></div>
+    </section>
+    
+
+    <section class="social">
+        <span>🌐</span>
+        <span>💬</span>
+        <span>🎮</span>
+        <span>⚽</span>
+    </section>
+
 </section>
 </body>
 </html>
