@@ -46,9 +46,12 @@
         100% { background-position: 0% 50%; }
         }
         .button1 {
+            height: 50px;
+            width: 100px;
         background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
         background-size: 400% 400%;
         animation: gradient 15s ease infinite;
+        cursor: pointer;
         }
         .social-icons-v3 {
             display: flex;
@@ -91,7 +94,53 @@
         .social-icons-v3 a:hover {
             transform: translateY(-10px);
         }
-        .social-icons-v3 a.facebook:hover { background: #1877f2; box-shadow: 0 10px 30px #1877f2; }
+        .social-icons-v3 a.facebook:hover { background: #1877f2; box-shadow: 0 10px 30px #1877f2; 
+        }
+        .card.kartice {
+            width: 200px;
+            height: 350px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;            
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .card.kartice:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .card.kartice-img {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, #1a73e8, #4285f4); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;               
+        }
+
+        .card.kartice-content {
+            padding: 20px;
+        }
+
+        .card.kartice-content h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .card.kartice-content p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;             
+        }
+        .card{display: inline-block; }
+
+        
+       
     </style>
 </head>
 <body>
@@ -99,16 +148,19 @@
     <div class="container"></div>    
     <h1 class="neon-text">GAPKO</h1>
     </div>
-    <p>slogan</p>
-    <button>PREUZMI</button>
-    <button class="button1">TRAILER</button>
+    <p>Cody Gakpo zvan Gapko...</p>
+    <button class="button1">Cody</button>
+    <button class="button1">Gakpo</button>
     <br><br>
-    <div class="kartica1">kartica1</div>
-    <div class="kartica2">kartica2</div>
-    <div class="kartica3">kartica3</div>
-    <div class="social-icons-v3">
-    <a href="#" class="facebook" data-name="Facebook">f</a>
+    <div class="card">
+        <div class="kartice"><h3>Cody Mathès Gakpo rođen 7. svibnja 1999. je nizozemski profesionalni nogometaš koji igra kao lijevo krilo ili središnji napadač za klub Liverpool i nizozemsku reprezentaciju .</h3></div>
+        <div class="kartice"><h3>PSV 106 utakmica, 36 golova</h3></div>
+        <div class="kartice"><h3>LIVERPOOL 118 utakmica, 31 gol</h3></div>
     </div>
+    <div></div>
+
+        
+      
     </section>
 </body>
 </html>
