@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<title>Instagram</title>
+
+<style>
+
+
+body{
+    margin:0;
+    font-family:Arial;
+    text-align:center;
+    color:white;
+    background:linear-gradient(270deg,#833ab4,#fd1d1d,#fcb045);
+    background-size:600% 600%;
+    animation:bg 10s ease infinite;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+
+h1{
+    margin-top:80px;
+    font-size:50px;
+    text-shadow:0 0 10px white;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px white; }
+    to{ text-shadow:0 0 30px yellow; }
+}
+
+
+.buttons{
+    margin:40px;
+}
+
+button{
+    padding:15px 30px;
+    margin:10px;
+    border:none;
+    border-radius:20px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+
+.btn1{
+    background:white;
+    color:black;
+}
+
+.btn1:hover{
+    transform:scale(1.1);
+}
+
+
+.btn2{
+    background:black;
+    color:white;
+}
+
+.btn2:hover{
+    animation:shake 0.4s;
+}
+
+@keyframes shake{
+    0%{transform:translateX(0);}
+    25%{transform:translateX(5px);}
+    50%{transform:translateX(-5px);}
+    75%{transform:translateX(5px);}
+    100%{transform:translateX(0);}
+}
+
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin:40px;
+}
+
+.card{
+    background:white;
+    color:black;
+    padding:20px;
+    width:200px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.4);
+}
+
+
+footer{
+    margin-top:60px;
+    font-size:30px;
+}
+
+footer span{
+    margin:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+footer span:hover{
+    transform:scale(1.3);
+}
+
+.ikone{
+    width: 1300x;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Instagram</h1>
+
+<div class="buttons">
+<button class="btn1">Preuzmi aplikaciju</button>
+<button class="btn2">Prijavi se</button>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3> Objave</h3>
+<p>Objavi svoju sliku</p>
+</div>
+
+<div class="card">
+<h3> Poruke</h3>
+<p>Dopisuj se s prijateljima</p>
+</div>
+
+<div class="card">
+<h3> Reels</h3>
+<p>Gledaj svoje omiljene videozapise</p>
+</div>
+
+</div>
+
+<footer class="ikone">
+<span>📷</span>
+<span>💬</span>
+<span>👥</span>
+</footer>
+
+</body>
+</html>
